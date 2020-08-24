@@ -21,9 +21,9 @@ jobs:
           yarn
           yarn test
           yarn build
-          
-        env:
-          CI: true
+
+      env:
+        CI: true
     
     
     - uses: w9jds/firebase-action@master
