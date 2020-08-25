@@ -18,8 +18,7 @@
     "noUnusedLocals": true,
     "noUnusedParameters": true,
     "sourceMap": true,
-
-    "isolatedModules": false,
+    "isolatedModules": true,
     "removeComments": true,
     "noEmit": true,
     "jsx": "react"
