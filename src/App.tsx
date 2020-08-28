@@ -3,7 +3,7 @@ import { BrowserRouter, Route, Switch } from 'react-router-dom';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import 'bootstrap/dist/js/bootstrap.min.js';
 
-import Home from './pages/quiz-1/Home/Home';
+import Home from './pages/quiz-1/Home/IntroductionOne';
 
 const App: React.FunctionComponent = () => {
   return (
