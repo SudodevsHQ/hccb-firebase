@@ -1,14 +1,19 @@
 import React from 'react';
-import './App.css';
+import { BrowserRouter, Route, Switch } from 'react-router-dom';
+import 'bootstrap/dist/css/bootstrap.min.css';
+import 'bootstrap/dist/js/bootstrap.min.js';
 
-function App() {
+import Home from './modules/Module-1/Home/IntroductionOne';
+
+const App: React.FunctionComponent = () => {
   return (
-    <div className="App">
-      <h1>Coke Lmfo</h1>
-
-      <p>okay description</p>
-    </div>
+    <BrowserRouter>
+      <Switch>
+        <Route path="/" component={Home} />
+        <Route path="/module/1/" component={Home} />
+      </Switch>
+    </BrowserRouter>
   );
-}
+};
 
 export default App;

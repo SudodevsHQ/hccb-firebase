@@ -16,5 +16,5 @@
       "jsx": true
     }
   },
-  "plugins": ["@typescript-eslint", "jest"]
+  "plugins": ["@typescript-eslint", "jest"],
 }
