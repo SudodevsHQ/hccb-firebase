@@ -1,0 +1,72 @@
+@import '../../colors.scss';
+
+.title {
+  font-family: Rubik;
+  font-style: normal;
+  font-weight: bold;
+  font-size: 36px;
+  line-height: 38px;
+  color: #535461;
+}
+
+.lap {
+  font-family: Rubik;
+  font-style: normal;
+  font-weight: bold;
+  font-size: 36px;
+  line-height: 38px;
+  color: $headerColor;
+}
+
+.description {
+  font-family: Rubik;
+  font-style: normal;
+  font-weight: normal;
+  font-size: 20px;
+  line-height: 38px;
+  color: #111111;
+}
+
+.subquestionNumber {
+  font-family: Rubik;
+  font-style: normal;
+  font-weight: bold;
+  font-size: 48px;
+  line-height: 38px;
+  color: $primaryPurple;
+  background-color: white;
+  margin: 10px;
+  border-radius: 20px;
+}
+
+.question {
+  font-family: Rubik;
+  font-style: normal;
+  font-weight: 500;
+  font-size: 20px;
+  line-height: 28px;
+  color: $primaryPurple;
+}
+
+.optionsBox {
+  padding: 50px;
+  background: $secondaryPurple;
+  border-radius: 30px;
+}
+
+.option {
+  border: 1px solid $primaryPurple;
+  box-sizing: border-box;
+  border-radius: 30px;
+  height: 12rem;
+  width: 12rem;
+  margin:10px
+}
+
+.selected {
+  background: $primaryPurple;
+  border: 1px solid $primaryPurple;
+  box-sizing: border-box;
+  border-radius: 30px;
+  color: white
+}
