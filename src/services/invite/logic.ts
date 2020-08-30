@@ -11,6 +11,6 @@ export function decryptLinkText(url: string, email: string): string {
   return link.toString(enc.Utf8);
 }
 
-export function isInviteValid(quizId: string, email: string): string {
-  return 'todo';
-}
+// export function isInviteValid(quizId: string, email: string): string {
+//   return 'todo';
+// }

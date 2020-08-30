@@ -4,22 +4,17 @@ import { Link } from 'react-router-dom';
 import Layout from '../layout/Layout';
 
 interface Props {
-  imageUrl: string;
   title: string;
-  description: string;
+  children: React.ReactNode;
 }
 
-const Introduction: React.FC<Props> = ({
-  imageUrl,
-  title,
-  description,
-}: Props) => {
+const Introduction: React.FC<Props> = ({ title, children }: Props) => {
   return (
-    <Layout image={imageUrl}>
+    <Layout image="quiz">
       <div className={style.wrapper}>
         <h1 className={style.title}>{title}</h1>
         <br></br>
-        {description}
+        {children}
         <div className="d-flex justify-content-center">
           <Link to="/module/1/lap/1" className={`btn m-5 ${style.startLap1}`}>
             Start Lap 1 &#8594;

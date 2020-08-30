@@ -3,7 +3,7 @@ import './Layout.scss';
 import HeroCard from '../ContentCard/ContentCard';
 
 interface Props {
-  image: string;
+  image: 'graph' | 'quiz';
   children: React.ReactNode;
 }
 
@@ -13,7 +13,7 @@ const Layout: React.FunctionComponent<Props> = (props: Props) => {
       <div className="row h-100 align-items-center">
         <div className="col-md-3 gx-0">
           <img
-            src={`/static/img/${props.image}`}
+            src={`/static/img/${props.image}.svg`}
             alt="A background"
             className="companion-image"
           />
