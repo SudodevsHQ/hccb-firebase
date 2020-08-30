@@ -1,9 +1,9 @@
 import React from 'react';
 import './Layout.scss';
-import HeroCard from '../HeroCard/HeroCard';
+import HeroCard from '../ContentCard/ContentCard';
 
 interface Props {
-  image: 'quiz.svg' | 'graph.svg';
+  image: string;
   children: React.ReactNode;
 }
 
