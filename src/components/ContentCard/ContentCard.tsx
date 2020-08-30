@@ -1,12 +1,12 @@
 import React from 'react';
 
-import style from './HeroCard.module.scss';
+import style from './ContentCard.module.scss';
 
 interface Props {
   children: React.ReactNode;
 }
 
-const HeroCard: React.FunctionComponent<Props> = (props: Props) => {
+const ContentCard: React.FunctionComponent<Props> = (props: Props) => {
   return (
     <div
       className={`${style.card} p-5 d-flex flex-column justify-content-center`}>
@@ -15,4 +15,4 @@ const HeroCard: React.FunctionComponent<Props> = (props: Props) => {
   );
 };
 
-export default HeroCard;
+export default ContentCard;
