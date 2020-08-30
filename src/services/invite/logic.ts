@@ -1,5 +1,5 @@
 import { AES, enc } from 'crypto-js';
-import { firebase } from '../../config/firebaseConfig';
+// import { firebase } from '../../config/firebaseConfig';
 
 export function generateLinkText(email: string): string {
   const link = AES.encrypt(email, email);
