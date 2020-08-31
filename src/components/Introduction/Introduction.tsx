@@ -11,13 +11,11 @@ interface Props {
 const Introduction: React.FC<Props> = ({ title, children }: Props) => {
   return (
     <Layout image="quiz">
-      <div className={style.wrapper}>
+      <div className={`${style.wrapper} px-lg-4`}>
         <h1 className={style.title}>{title}</h1>
         <br></br>
         {children}
-        <PrimaryButton path="/module/1/lap/1a">
-          Start Lap 1 &#8594;
-        </PrimaryButton>
+        <PrimaryButton path="/module/1/lap/1a">Start Lap 1</PrimaryButton>
       </div>
     </Layout>
   );

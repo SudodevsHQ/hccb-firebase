@@ -2,16 +2,26 @@
 
 .button {
   background: $primaryPurple;
-  border-radius: 30px;
+  border-radius: 2rem;
   font-family: Rubik;
   font-style: normal;
   font-weight: bold;
-  font-size: 22px;
-  line-height: 38px;
+  font-size: 1.2rem;
+  line-height: 2rem;
   color: #ffffff;
-  width: 30%;
+  width: 20%;
+  vertical-align: middle;
 }
 
-.button:hover{
-    color: #111111
+.button:hover {
+  background-color: white;
+  color: $primaryPurple;
+  border-color: $primaryPurple;
+  box-shadow: 0px 10px 25px rgba(124, 87, 246, 0.34);
+
+  svg {
+    color: $primaryPurple !important;
+    transition: color 0.15s ease-in-out, background-color 0.15s ease-in-out,
+      border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
+  }
 }

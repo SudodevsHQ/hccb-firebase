@@ -3,7 +3,7 @@ import Introduction from '../../../components/Introduction/Introduction';
 
 const IntroductionOne: React.FunctionComponent = () => {
   return (
-    <Introduction title="Some Relevant Title">
+    <Introduction title="Popz Soda - A Case Study">
       <p>
         You are the sales-head of Popz-Soda Pvt. Ltd. This case study is to
         analyse the decision-making capability of the sales-head and how well
