@@ -68,6 +68,8 @@
     color: white;
     background-color: $primaryPurple;
     font-weight: 500;
+    font-size: 1.8rem;
+    transition: font-size 0.3s cubic-bezier(0.215, 0.610, 0.355, 1);
   }
 }
 
