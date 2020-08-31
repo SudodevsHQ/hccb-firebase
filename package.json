@@ -13,6 +13,7 @@
     "bootstrap": "^5.0.0-alpha1",
     "crypto-js": "^4.0.0",
     "firebase": "^7.19.1",
+    "firebase-admin": "^9.1.1",
     "firebase-tools": "^8.9.0",
     "global": "^4.4.0",
     "node-sass": "^4.14.1",

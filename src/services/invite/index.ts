@@ -1,1 +1,1 @@
-export { decryptLinkText, generateLinkText } from './logic';
+export { decryptLinkText, generateLinkText, isInviteValid } from './logic';
