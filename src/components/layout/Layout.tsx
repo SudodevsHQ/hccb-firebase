@@ -14,7 +14,7 @@ const Layout: React.FunctionComponent<Props> = (props: Props) => {
         <div className="col-md-3 gx-0">
           <img
             src={`/static/img/${props.image}.svg`}
-            // alt="A background"
+            alt="A background"
             className="companion-image"
           />
         </div>
