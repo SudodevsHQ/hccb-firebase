@@ -1,0 +1,17 @@
+@import '../../colors.scss';
+
+.button {
+  background: $primaryPurple;
+  border-radius: 30px;
+  font-family: Rubik;
+  font-style: normal;
+  font-weight: bold;
+  font-size: 22px;
+  line-height: 38px;
+  color: #ffffff;
+  width: 30%;
+}
+
+.button:hover{
+    color: #111111
+}

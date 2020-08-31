@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 
 import Layout from '../layout/Layout';
 import styles from './MCQ.module.scss';
+import PrimaryButton from '../primaryButton/primaryButton';
 
 interface Props {
   lapNumber: number;
@@ -11,6 +12,7 @@ interface Props {
   subquestionNumber?: string;
   options: Array<string>;
   correctOption: number;
+  nextPath: string;
 }
 
 const MCQ: React.FC<Props> = (props: Props) => {
@@ -50,6 +52,9 @@ const MCQ: React.FC<Props> = (props: Props) => {
               </div>
             ))}
           </div>
+        </div>
+        <div className="d-flex flex-column">
+          <PrimaryButton path={props.nextPath}>Next</PrimaryButton>
         </div>
       </div>
     </Layout>

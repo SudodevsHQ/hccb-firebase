@@ -1,7 +1,7 @@
 import React from 'react';
 import MCQ from '../../../components/MCQ/MCQ';
 
-const LapOneA: React.FC = () => {
+const LapOneB: React.FC = () => {
   return (
     <MCQ
       lapNumber={1}
@@ -15,15 +15,17 @@ const LapOneA: React.FC = () => {
       }
       question={
         <p>
-          Choose the Retail Discounting you would want to take up for Aloe-Pop
-          sales of 5000 Cases in coming 30 days.
+          Good Job ! Now you have (20,000 – x ) INR left for purchasing the
+          marketing materials. The marketing materials include stall banners,
+          new product promotion Ads, walls stickers (4” * 4”) etc.
         </p>
       }
-      subquestionNumber={'A'}
+      subquestionNumber={'B'}
       options={['10%', '25%', '50%']}
       correctOption={1}
+      nextPath="/module/1/lap/1c"
     />
   );
 };
 
-export default LapOneA;
+export default LapOneB;
