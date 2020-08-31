@@ -3,6 +3,7 @@ import React, { useState } from 'react';
 import Layout from '../layout/Layout';
 import styles from './MCQ.module.scss';
 import PrimaryButton from '../primaryButton/primaryButton';
+import ModuleTitle from '../moduleTitle/moduleTitle';
 
 interface Props {
   lapNumber: number;
@@ -21,10 +22,8 @@ const MCQ: React.FC<Props> = (props: Props) => {
   return (
     <Layout image="graph">
       <div className="container">
-        <h1 className={styles.title}>
-          <span className={styles.lap}>Lap {props.lapNumber}:</span>{' '}
-          {props.title}
-        </h1>
+        <ModuleTitle title={props.title} lapNumber={props.lapNumber} />
+
         <div className={styles.description}>{props.description}</div>
         <div className={`container ${styles.optionsBox} p-5`}>
           <div className="row">

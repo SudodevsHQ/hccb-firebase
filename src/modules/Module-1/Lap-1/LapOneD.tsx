@@ -1,7 +1,7 @@
 import React from 'react';
 import MCQ from '../../../components/MCQ/MCQ';
 
-const LapOneC: React.FC = () => {
+const LapOneD: React.FC = () => {
   return (
     <MCQ
       lapNumber={1}
@@ -13,18 +13,13 @@ const LapOneC: React.FC = () => {
           <strong> 10%, 25 % & 50%</strong> with the max. limit of Rs. 20,000.
         </p>
       }
-      question={
-        <p>
-          Do You want to additionally have an extra promo for Distributor Promo
-          @ 1000 INR?
-        </p>
-      }
-      subquestionNumber={'C'}
+      question={<p>Do you want to pop up with Truck Vinyl @ 3000 INR ?</p>}
+      subquestionNumber={'D'}
       options={['Yes', 'No']}
       correctOption={1}
-      nextPath="/module/1/lap/1d"
+      nextPath="/module/1/result"
     />
   );
 };
 
-export default LapOneC;
+export default LapOneD;
