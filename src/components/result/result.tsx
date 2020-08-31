@@ -22,7 +22,7 @@ const Result: React.FC<Props> = (props: Props) => {
       <HeroCard>
         <ModuleTitle title={props.title} lapNumber={props.lapNumber} />
 
-        <img src="/static/img/result.svg" className="my-4" />
+        <img src="/static/img/result.svg" alt="a trophy" className="my-4" />
 
         <div className={styles.description}>{props.description}</div>
 
