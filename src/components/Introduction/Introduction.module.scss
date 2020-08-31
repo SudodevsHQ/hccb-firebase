@@ -4,28 +4,16 @@
   font-family: Rubik;
   font-style: normal;
   font-weight: normal;
-  font-size: 20px;
-  line-height: 38px;
-  color: #111111;
+  font-size: 1.1rem;
+  line-height: 2.2rem;
+  color: $descriptionTextColor;
 }
 
 .title {
   font-family: Rubik;
   font-style: normal;
   font-weight: bold;
-  font-size: 36px;
+  font-size: 2rem;
   line-height: 38px;
   color: $headerColor;
-}
-
-.startLap1 {
-  background: $primaryPurple;
-  border-radius: 30px;
-  font-family: Rubik;
-  font-style: normal;
-  font-weight: bold;
-  font-size: 22px;
-  line-height: 38px;
-  color: #ffffff;
-  width: 30%;
 }
