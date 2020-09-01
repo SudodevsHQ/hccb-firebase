@@ -1,6 +1,8 @@
 import React from 'react';
 import { Icon } from '@iconify/react';
 import checkCircleFilled from '@iconify/icons-ant-design/check-circle-filled';
+import useWindowDimensions from '../../hooks/useWindowDimensions';
+import Confetti from 'react-confetti';
 
 import HeroCard from '../ContentCard/ContentCard';
 import ModuleTitle from '../moduleTitle/moduleTitle';
@@ -17,9 +19,17 @@ interface Props {
 }
 
 const Result: React.FC<Props> = (props: Props) => {
+  const { width, height } = useWindowDimensions();
+
   return (
     <div
       className={`${styles.result} p-5 d-flex text-center justify-content-center`}>
+      <Confetti
+        width={width}
+        height={height}
+        recycle={false}
+        numberOfPieces={400}
+      />
       <HeroCard>
         <ModuleTitle title={props.title} lapNumber={props.lapNumber} />
 
