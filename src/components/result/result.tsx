@@ -13,6 +13,7 @@ interface Props {
   description?: string;
   qualities: Array<string>;
   remark?: string;
+  nextPath: string;
 }
 
 const Result: React.FC<Props> = (props: Props) => {
@@ -43,7 +44,7 @@ const Result: React.FC<Props> = (props: Props) => {
 
         <div className={styles.remark}>{props.remark}</div>
 
-        <PrimaryButton path="/">Next Lap</PrimaryButton>
+        <PrimaryButton path={props.nextPath}>Next Lap</PrimaryButton>
       </HeroCard>
     </div>
   );
