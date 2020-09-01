@@ -6,7 +6,7 @@ const LapThree: React.FC = () => {
     <MCQ
       title="Set the context "
       lapNumber={3}
-      image="dashboard"
+      image="man"
       question="What kind of an approach will you choose in setting the context with the team-"
       nextPath="/module/1/lap/3/result"
       options={[

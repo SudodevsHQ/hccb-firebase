@@ -15,7 +15,7 @@ interface Props {
   correctOption?: number;
   nextPath: string;
   optionsPerRow: number;
-  image: 'graph' | 'dashboard';
+  image: 'graph' | 'dashboard' | 'man';
 }
 
 const MCQ: React.FC<Props> = (props: Props) => {
