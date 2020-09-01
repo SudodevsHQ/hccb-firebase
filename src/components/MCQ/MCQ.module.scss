@@ -41,25 +41,46 @@
   box-sizing: border-box;
   border-radius: 30px;
   flex-grow: 1;
-  height: 20vh;
-  margin:10px;
+  min-height: 20vh;
+  margin: 10px;
   color: $primaryPurple;
   font-size: 1.5rem;
 
+  p {
+    color: $primaryPurple;
+    font-size: 1.25rem;
+  }
+
   &:hover {
-    color: white;
+    color: white !important;
     background-color: $primaryPurple;
     font-weight: 500;
     font-size: 1.8rem;
-    transition: font-size 0.3s cubic-bezier(0.215, 0.610, 0.355, 1);
+    transition: font-size 0.3s cubic-bezier(0.215, 0.61, 0.355, 1);
+  }
+
+  &:hover p {
+    color: white;
+    font-weight: normal;
+    transition: font-size 0.3s cubic-bezier(0.215, 0.61, 0.355, 1);
   }
 }
 
-.selected {
+.selected,
+.selected p {
   background: $primaryPurple;
   border: 1px solid $primaryPurple;
   box-sizing: border-box;
   border-radius: 30px;
   color: white;
-  font-weight: 500;
+}
+
+.optionsWrapper {
+  max-height: 50vh;
+  overflow-y: scroll;
+  display: flex;
+  flex-wrap: wrap;
+  &::-webkit-scrollbar-thumb {
+    background-color: $primaryPurple;
+  }
 }

@@ -3,7 +3,7 @@ import './Layout.scss';
 import HeroCard from '../ContentCard/ContentCard';
 
 interface Props {
-  image: 'graph' | 'quiz';
+  image: 'graph' | 'quiz' | 'dashboard';
   children: React.ReactNode;
 }
 
