@@ -1,6 +1,6 @@
 import React from 'react';
 import './Layout.scss';
-import HeroCard from '../ContentCard/ContentCard';
+import ContentCard from '../ContentCard/ContentCard';
 
 interface Props {
   image: 'graph' | 'quiz' | 'dashboard' | 'man';
@@ -19,7 +19,7 @@ const Layout: React.FunctionComponent<Props> = (props: Props) => {
           />
         </div>
         <div className="col-md-9 gx-0 h-100 ">
-          <HeroCard>{props.children}</HeroCard>
+          <ContentCard>{props.children}</ContentCard>
         </div>
       </div>
     </div>
