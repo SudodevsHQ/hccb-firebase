@@ -6,6 +6,7 @@ const LapOneD: React.FC = () => {
     <MCQ
       lapNumber={1}
       title={'Budget Management'}
+      image="graph"
       description={
         <p>
           The entire process of retail discounting and purchasing the marketing
@@ -17,7 +18,8 @@ const LapOneD: React.FC = () => {
       subquestionNumber={'D'}
       options={['Yes', 'No']}
       correctOption={1}
-      nextPath="/module/1/result"
+      optionsPerRow={2}
+      nextPath="/module/1/lap/1/result"
     />
   );
 };

@@ -15,7 +15,7 @@ const Introduction: React.FC<Props> = ({ title, children }: Props) => {
         <h1 className={style.title}>{title}</h1>
         <br></br>
         {children}
-        <PrimaryButton path="/module/1/lap/1a">Start Lap 1</PrimaryButton>
+        <PrimaryButton path="/module/1/lap/1/a">Start Lap 1</PrimaryButton>
       </div>
     </Layout>
   );

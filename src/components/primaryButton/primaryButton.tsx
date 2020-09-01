@@ -13,7 +13,7 @@ interface Props {
 const PrimaryButton: React.FC<Props> = (props: Props) => {
   return (
     <div className="d-flex justify-content-center">
-      <Link to={props.path} className={`btn px-md-5 m-3 ${style.button}`}>
+      <Link to={props.path} className={`btn px-md-5 mt-4 ${style.button}`}>
         {props.children}
         <Icon
           icon={bxRightArrowAlt}
