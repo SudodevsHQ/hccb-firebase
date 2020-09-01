@@ -5,6 +5,7 @@ const LapTwoResult: React.FC = () => {
   return (
     <Result
       title="Manpower  Management"
+      description="Your decision shows these qualities"
       lapNumber={2}
       qualities={[
         'Inclusive, Collaborative, Empathetic',

@@ -23,13 +23,16 @@ const MCQ: React.FC<Props> = (props: Props) => {
 
   return (
     <Layout image={props.image}>
-      <div className="container">
+      <div className="container px-xl-5 px-md-2">
         <ModuleTitle title={props.title} lapNumber={props.lapNumber} />
 
         <div className={styles.description}>{props.description}</div>
-        <div className={`container ${styles.optionsBox} p-5`}>
+        <div
+          className={`container ${styles.optionsBox} ${
+            props.lapNumber === 2 || props.lapNumber === 3 ? 'p-lg-4' : 'p-lg-5'
+          } p-1 p-md-2`}>
           <div className={`row ${!props.subquestionNumber && 'd-none'}`}>
-            <div className="col-md-1">
+            <div className="col-md-1 gx-0">
               <div className={`${styles.subquestionNumber} text-center p-2`}>
                 {props.subquestionNumber}
               </div>
@@ -57,7 +60,7 @@ const MCQ: React.FC<Props> = (props: Props) => {
             ))}
           </div>
         </div>
-        <div className="d-flex flex-column mt-2">
+        <div className="">
           <PrimaryButton path={props.nextPath}>Next</PrimaryButton>
         </div>
       </div>
