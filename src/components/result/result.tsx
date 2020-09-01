@@ -30,7 +30,7 @@ const Result: React.FC<Props> = (props: Props) => {
         <div className="mx-auto text-center">
           {props.qualities.map((quality) => {
             return (
-              <div key={quality} className={styles.quality}>
+              <div key={quality} className={`${styles.quality}`}>
                 <Icon
                   icon={checkCircleFilled}
                   style={{ color: '#6fd05f', fontSize: '32px' }}

@@ -8,14 +8,14 @@ import ModuleTitle from '../moduleTitle/moduleTitle';
 interface Props {
   lapNumber: number;
   title: string;
-  description: React.ReactNode;
+  description?: React.ReactNode;
   question?: React.ReactNode;
   subquestionNumber?: string;
   options: Array<React.ReactNode>;
   correctOption?: number;
   nextPath: string;
   optionsPerRow: number;
-  image: 'graph' | 'dashboard';
+  image: 'graph' | 'dashboard' | 'man';
 }
 
 const MCQ: React.FC<Props> = (props: Props) => {
