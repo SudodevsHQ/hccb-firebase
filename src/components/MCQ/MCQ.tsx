@@ -8,7 +8,7 @@ import ModuleTitle from '../moduleTitle/moduleTitle';
 interface Props {
   lapNumber: number;
   title: string;
-  description: React.ReactNode;
+  description?: React.ReactNode;
   question?: React.ReactNode;
   subquestionNumber?: string;
   options: Array<React.ReactNode>;

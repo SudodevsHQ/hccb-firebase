@@ -15,7 +15,7 @@ const LapTwo: React.FC = () => {
           <strong>You need to recruit 2 more sales men.</strong>
         </p>
       }
-      nextPath="/module/1/lap/2"
+      nextPath="/module/1/lap/2/result"
       options={[
         <p key="rakesh">
           <strong>Rakesh</strong> is an experience personal, has amazing

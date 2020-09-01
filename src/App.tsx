@@ -14,6 +14,7 @@ import {
   LapOneResult,
 } from './modules/Module-1/Lap-1/index';
 import { LapTwo, LapTwoResult } from './modules/Module-1/Lap-2/index';
+import { LapThree, LapThreeResult } from './modules/Module-1/Lap-3/index';
 
 const App: React.FunctionComponent = () => {
   return (
@@ -36,6 +37,16 @@ const App: React.FunctionComponent = () => {
 
         <AnimatedRoute path="/module/1/lap/2" component={LapTwo} exact={true} />
         <AnimatedRoute path="/module/1/lap/2/result" component={LapTwoResult} />
+
+        <AnimatedRoute
+          path="/module/1/lap/3"
+          component={LapThree}
+          exact={true}
+        />
+        <AnimatedRoute
+          path="/module/1/lap/3/result"
+          component={LapThreeResult}
+        />
       </AnimatedSwitch>
     </BrowserRouter>
   );
