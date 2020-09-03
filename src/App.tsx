@@ -5,7 +5,10 @@ import { pageTransitions } from './util/rrtConfig';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import 'bootstrap/dist/js/bootstrap.min.js';
 
-import Home from './modules/Module-1/Home/IntroductionOne';
+import {
+  IntroductionOne,
+  ModuleIntroVideo,
+} from './modules/Module-1/Home/index';
 import {
   LapOneA,
   LapOneB,
@@ -30,9 +33,12 @@ const App: React.FunctionComponent = () => {
           transform: `translateX(${styles.offset}%)`,
         })}
         className="switch-wrapper">
-        <AnimatedRoute path="/" component={Home} exact={true} />
+        <AnimatedRoute path="/" component={ModuleIntroVideo} exact={true} />
 
-        <AnimatedRoute path="/module/1/introduction" component={Home} />
+        <AnimatedRoute
+          path="/module/1/introduction"
+          component={IntroductionOne}
+        />
         <AnimatedRoute path="/module/1/lap/1/a" component={LapOneA} />
         <AnimatedRoute path="/module/1/lap/1/b" component={LapOneB} />
         <AnimatedRoute path="/module/1/lap/1/c" component={LapOneC} />

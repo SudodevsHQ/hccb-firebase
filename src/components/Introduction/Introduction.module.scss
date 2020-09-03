@@ -6,6 +6,9 @@
   font-weight: normal;
   line-height: 1.75;
   color: $descriptionTextColor;
+  display: flex;
+  flex-direction: column;
+  flex-grow: 1;
 }
 
 .title {
