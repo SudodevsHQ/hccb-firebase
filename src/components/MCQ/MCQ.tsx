@@ -29,16 +29,23 @@ const MCQ: React.FC<Props> = (props: Props) => {
         <div className={styles.description}>{props.description}</div>
         <div
           className={`container ${styles.optionsBox} ${
-            props.lapNumber === 2 || props.lapNumber === 3 ? 'p-lg-4' : 'p-lg-5'
+            [2, 3, 4].includes(props.lapNumber) ? 'p-lg-4' : 'p-lg-5'
           } p-1 p-md-2`}>
-          <div className={`row ${!props.subquestionNumber && 'd-none'}`}>
-            <div className="col-md-1 gx-0">
-              <div className={`${styles.subquestionNumber} text-center p-2`}>
+          <div className={`row ${!props.question && 'd-none'}`}>
+            <div
+              className={`col-md-1 gx-0 ${
+                !props.subquestionNumber && 'd-none'
+              }`}>
+              <div className={`${styles.subquestionNumber}  text-center p-2`}>
                 {props.subquestionNumber}
               </div>
             </div>
             <div
-              className={`col-md-11 ${styles.question} d-flex align-items-center`}>
+              className={`col-md-11 ${
+                styles.question
+              } d-flex align-items-center ${
+                !props.subquestionNumber && 'pl-lg-5 pl-4'
+              }`}>
               {props.question}
             </div>
           </div>

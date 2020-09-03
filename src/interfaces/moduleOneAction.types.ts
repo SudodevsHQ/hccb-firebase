@@ -9,14 +9,20 @@ export interface SetLapOneSaving {
   savings: number;
 }
 
+export interface SetLapTwoChoices {
+  type: string;
+  choices: number[];
+}
+
+// Action creater for lap 3 and 4
 export interface SingleChoiceAction {
   type: string;
   choice: number;
 }
 
-export interface SetLapTwoChoices {
+export interface SetLapFourSubjectiveResponse {
   type: string;
-  choices: number[];
+  response: string;
 }
 
 export interface SetLapFiveOrder {
@@ -29,4 +35,5 @@ export type moduleOneActionTypes =
   | SingleChoiceAction
   | SetLapFiveOrder
   | SetLapTwoChoices
-  | SetLapOneSaving;
+  | SetLapOneSaving
+  | SetLapFourSubjectiveResponse;

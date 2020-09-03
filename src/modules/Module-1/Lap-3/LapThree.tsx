@@ -7,7 +7,12 @@ const LapThree: React.FC = () => {
       title="Set the context "
       lapNumber={3}
       image="man"
-      question="What kind of an approach will you choose in setting the context with the team-"
+      question={
+        <p>
+          What kind of an approach will you choose in setting the context with
+          the team
+        </p>
+      }
       nextPath="/module/1/lap/3/result"
       options={[
         <p key="1">
@@ -39,7 +44,7 @@ const LapThree: React.FC = () => {
           even in a tiring condition.
         </p>,
       ]}
-      optionsPerRow={3}></MCQ>
+      optionsPerRow={2}></MCQ>
   );
 };
 

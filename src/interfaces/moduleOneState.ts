@@ -15,6 +15,7 @@ export interface moduleOneState {
   };
   lapFour: {
     choice: null | number;
+    subjectiveResponse?: string;
   };
   lapFive: {
     order: number[];

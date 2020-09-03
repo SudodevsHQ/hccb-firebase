@@ -6,6 +6,7 @@ import {
   SetLapOneSaving,
   SetLapTwoChoices,
   SetLapFiveOrder,
+  SetLapFourSubjectiveResponse,
 } from '../../interfaces/moduleOneAction.types';
 
 const moduleOneDefaultState: moduleOneState = {
@@ -25,6 +26,7 @@ const moduleOneDefaultState: moduleOneState = {
   },
   lapFour: {
     choice: null,
+    subjectiveResponse: undefined,
   },
   lapFive: {
     order: [],
@@ -75,6 +77,14 @@ const moduleOneReducer = (
         ...state,
         lapFour: {
           choice: (action as SingleChoiceAction).choice,
+        },
+      };
+    case 'SET_LAPFOUR_SUBJECTIVE_RESPONSE':
+      return {
+        ...state,
+        lapFour: {
+          ...state.lapFour,
+          subjectiveResponse: (action as SetLapFourSubjectiveResponse).response,
         },
       };
 

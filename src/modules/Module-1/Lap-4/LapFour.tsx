@@ -7,7 +7,7 @@ const LapFour: React.FC = () => {
       title="What kind of style would you like to adapt?"
       lapNumber={4}
       image="man"
-      nextPath="/module/1/lap/1/introduction"
+      nextPath="/module/1/lap/4/why"
       options={[
         'Participating and Supporting',
         'Selling and Coaching',

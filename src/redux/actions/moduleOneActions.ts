@@ -1,4 +1,7 @@
-import { moduleOneActionTypes } from '../../interfaces/moduleOneAction.types';
+import {
+  moduleOneActionTypes,
+  SetLapFourSubjectiveResponse,
+} from '../../interfaces/moduleOneAction.types';
 
 export const setLapOneChoice = (
   option: string,
@@ -38,6 +41,13 @@ export const setLapFourChoice = (choice: number): moduleOneActionTypes => {
     choice,
   };
 };
+
+export const setLapFourSubjectiveResponse = (
+  response: string,
+): SetLapFourSubjectiveResponse => ({
+  type: 'SET_LAPFOUR_SUBJECTIVE_RESPONSE',
+  response,
+});
 
 export const setLapFiveOrder = (order: number[]): moduleOneActionTypes => {
   return {
