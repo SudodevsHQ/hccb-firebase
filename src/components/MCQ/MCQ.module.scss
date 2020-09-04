@@ -89,3 +89,8 @@
     width: 0.3rem;
   }
 }
+
+.noHover .option:hover,
+.noHover .selected {
+  background-color: transparent;
+}
