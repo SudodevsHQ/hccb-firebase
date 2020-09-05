@@ -1,3 +1,5 @@
+// Multiple-Choice Question Component
+
 import React, { useState } from 'react';
 
 import Layout from '../layout/Layout';
@@ -15,7 +17,7 @@ interface Props {
   correctOption?: number;
   nextPath: string;
   optionsPerRow: number;
-  image: 'graph' | 'dashboard' | 'man';
+  image: 'graph' | 'dashboard' | 'man' | 'puzzle';
 }
 
 const MCQ: React.FC<Props> = (props: Props) => {
@@ -29,7 +31,7 @@ const MCQ: React.FC<Props> = (props: Props) => {
         <div className={styles.description}>{props.description}</div>
         <div
           className={`container ${styles.optionsBox} ${
-            [2, 3, 4].includes(props.lapNumber) ? 'p-lg-4' : 'p-lg-5'
+            props.lapNumber !== 1 ? 'p-lg-4' : 'p-lg-5'
           } p-1 p-md-2`}>
           <div className={`row ${!props.question && 'd-none'}`}>
             <div
@@ -50,9 +52,7 @@ const MCQ: React.FC<Props> = (props: Props) => {
             </div>
           </div>
           <div
-            className={`row justify-content-center px-md-4 ${
-              styles.optionsWrapper
-            } ${props.options.length === 1 && styles.noHover}`}>
+            className={`row justify-content-center px-md-4 ${styles.optionsWrapper}`}>
             {props.options.map((option, index) => (
               <div
                 key={index}

@@ -77,7 +77,7 @@
 }
 
 .optionsWrapper {
-  max-height: 40vh;
+  max-height: 18rem;
   overflow-y: auto;
   display: flex;
   flex-wrap: wrap;
@@ -88,9 +88,4 @@
   &::-webkit-scrollbar {
     width: 0.3rem;
   }
-}
-
-.noHover .option:hover,
-.noHover .selected {
-  background-color: transparent;
 }
