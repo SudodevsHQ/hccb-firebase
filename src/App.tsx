@@ -22,6 +22,7 @@ import {
   LapFour,
   LapFourSubjectiveResponse,
 } from './modules/Module-1/Lap-4//index';
+import LapFive from './modules/Module-1/Lap-5/LapFive';
 
 const App: React.FunctionComponent = () => {
   return (
@@ -66,6 +67,11 @@ const App: React.FunctionComponent = () => {
         <AnimatedRoute
           path="/module/1/lap/4/why"
           component={LapFourSubjectiveResponse}
+        />
+        <AnimatedRoute
+          path="/module/1/lap/5"
+          component={LapFive}
+          exact={true}
         />
       </AnimatedSwitch>
     </BrowserRouter>
