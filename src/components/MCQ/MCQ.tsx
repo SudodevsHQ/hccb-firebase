@@ -52,9 +52,7 @@ const MCQ: React.FC<Props> = (props: Props) => {
             </div>
           </div>
           <div
-            className={`row justify-content-center px-md-4 ${
-              styles.optionsWrapper
-            } ${props.options.length === 1 && styles.noHover}`}>
+            className={`row justify-content-center px-md-4 ${styles.optionsWrapper}`}>
             {props.options.map((option, index) => (
               <div
                 key={index}
