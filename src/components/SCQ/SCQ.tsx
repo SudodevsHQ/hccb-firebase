@@ -13,8 +13,8 @@ interface Props {
   title: string;
   description?: React.ReactNode;
   question?: React.ReactNode;
+  children: React.ReactNode;
   subquestionNumber?: string;
-  child: React.ReactNode;
   nextPath: string;
   image: 'graph' | 'dashboard' | 'man' | 'puzzle';
 }
@@ -48,7 +48,7 @@ const SCQ: React.FC<Props> = (props: Props) => {
           </div>
           <div
             className={`row justify-content-center px-md-4 ${styles.childWrapper} `}>
-            {props.child}
+            {props.children}
           </div>
         </div>
         <div className="">

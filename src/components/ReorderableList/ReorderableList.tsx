@@ -21,6 +21,8 @@ const executionStepList = [
   { id: 7, content: 'Outlet Merchandising' },
 ];
 
+// const correctStepOrder = [1, 3, 5, 2, 4, 7, 6];
+
 const reorder = (
   list: Array<{ id: number; content: string }>,
   startIndex: number,
@@ -45,7 +47,7 @@ const ReorderableList: React.FC = () => {
   };
 
   return (
-    <div className="droppableWrapper row">
+    <div className={`${styles.droppableWrapper} row`}>
       <div className="indexes col-1 d-flex flex-column justify-content-around">
         <div className={`${styles.index}`}>1</div>
         <div className={`${styles.index}`}>2</div>
@@ -59,10 +61,7 @@ const ReorderableList: React.FC = () => {
         <DragDropContext onDragEnd={handleDragEnd}>
           <Droppable droppableId="reorderableList">
             {(provided) => (
-              <div
-                className={`${styles.reorderableList}`}
-                {...provided.droppableProps}
-                ref={provided.innerRef}>
+              <div {...provided.droppableProps} ref={provided.innerRef}>
                 {executionStepList.map((item, index) => (
                   <Draggable
                     key={`item-${item.id}`}
