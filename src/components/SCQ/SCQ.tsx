@@ -16,7 +16,7 @@ interface Props {
   children: React.ReactNode;
   subquestionNumber?: string;
   nextPath: string;
-  image: 'graph' | 'dashboard' | 'man' | 'puzzle';
+  image: 'graph' | 'dashboard' | 'man' | 'puzzle' | 'presentation';
 }
 
 const SCQ: React.FC<Props> = (props: Props) => {

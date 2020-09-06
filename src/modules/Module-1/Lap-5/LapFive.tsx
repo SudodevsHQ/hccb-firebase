@@ -9,7 +9,7 @@ const LapFive: React.FC = () => {
       description="Put the steps into order"
       lapNumber={5}
       image="puzzle"
-      nextPath="/module/1/lap/4/why">
+      nextPath="/module/1/lap/6">
       <ReorderableList />
     </SCQ>
   );

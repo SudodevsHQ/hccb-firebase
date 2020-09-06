@@ -3,7 +3,14 @@ import './Layout.scss';
 import ContentCard from '../ContentCard/ContentCard';
 
 interface Props {
-  image: 'graph' | 'quiz' | 'dashboard' | 'man' | 'analysis' | 'puzzle';
+  image:
+    | 'graph'
+    | 'quiz'
+    | 'dashboard'
+    | 'man'
+    | 'analysis'
+    | 'puzzle'
+    | 'presentation';
   children: React.ReactNode;
 }
 
