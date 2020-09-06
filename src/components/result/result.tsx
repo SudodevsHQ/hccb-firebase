@@ -1,6 +1,8 @@
 import React from 'react';
 import { Icon } from '@iconify/react';
 import checkCircleFilled from '@iconify/icons-ant-design/check-circle-filled';
+import infoCircleFilled from '@iconify/icons-ant-design/info-circle-filled';
+
 import useWindowDimensions from '../../hooks/useWindowDimensions';
 import Confetti from 'react-confetti';
 
@@ -13,12 +15,14 @@ interface Props {
   lapNumber: number;
   title: string;
   description?: string;
-  qualities: Array<string>;
+  qualities?: Array<string>;
+  suggestions?: Array<string>;
   remark?: string;
   nextPath: string;
+  image?: 'result' | 'completed';
 }
 
-const Result: React.FC<Props> = (props: Props) => {
+const Result: React.FC<Props> = ({ image = 'result', ...props }: Props) => {
   const { width, height } = useWindowDimensions();
 
   return (
@@ -33,12 +37,12 @@ const Result: React.FC<Props> = (props: Props) => {
       <HeroCard>
         <ModuleTitle title={props.title} lapNumber={props.lapNumber} />
 
-        <img src="/static/img/result.svg" alt="a trophy" className="my-4" />
+        <img src={`/static/img/${image}.svg`} alt="a trophy" className="my-4" />
 
         <div className={styles.description}>{props.description}</div>
 
         <div className={`mx-auto text-center my-2 ${styles.qualities}`}>
-          {props.qualities.map((quality) => {
+          {props.qualities?.map((quality) => {
             return (
               <div key={quality} className={`${styles.quality}`}>
                 <Icon
@@ -53,6 +57,15 @@ const Result: React.FC<Props> = (props: Props) => {
               </div>
             );
           })}
+          {props.suggestions?.map((suggestion) => (
+            <div key={suggestion} className={`${styles.suggestion}`}>
+              <Icon
+                icon={infoCircleFilled}
+                style={{ color: '#ffc652', fontSize: '32px' }}
+              />
+              &nbsp; {suggestion}
+            </div>
+          ))}
         </div>
 
         <div className={styles.remark}>{props.remark}</div>

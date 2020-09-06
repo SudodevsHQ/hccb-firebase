@@ -9,7 +9,7 @@ const LapSixPartA: React.FC = () => {
       question="What kind of conversation will you keep in mind while pushing the product into the market?"
       lapNumber={6}
       image="presentation"
-      nextPath="/module/1/lap/4/why"
+      nextPath="/module/1/lap/6/partB/result"
       options={[
         <p key="1">
           If the retailer says a No, I would try to begin the conversation on

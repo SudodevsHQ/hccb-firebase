@@ -15,7 +15,7 @@ const LapFour: React.FC = () => {
       <textarea
         key={'1'}
         className="w-100 h-100 form-control mb-4"
-        rows={10}
+        rows={8}
         placeholder=" &nbsp; Describe more..."
       />
     </SCQ>

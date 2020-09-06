@@ -9,7 +9,7 @@ const LapSixPartA: React.FC = () => {
       question="What kind of conversation will you keep in mind while pushing the product into the market?"
       lapNumber={6}
       image="presentation"
-      nextPath="/module/1/lap/6/partB"
+      nextPath="/module/1/lap/6/partA/result"
       options={[
         <p key="1">
           Is it possible to keep a case of Aloe-Pop in the display panel?

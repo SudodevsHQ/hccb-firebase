@@ -6,14 +6,22 @@
   max-width: 35rem;
 }
 
-.quality {
+.quality,
+.suggestion {
   font-family: Rubik;
   font-style: normal;
   font-weight: bold;
   font-size: 1.115rem;
   line-height: 1.5rem;
-  text-align: left;
+  // text-align: left;
+}
+
+.quality {
   color: #6fd05f;
+}
+
+.suggestion {
+  color: #ffc652;
 }
 
 .remark,
