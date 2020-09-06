@@ -11,7 +11,7 @@ const LapFour: React.FC = () => {
       }
       lapNumber={4}
       image="man"
-      nextPath="/module/1/lap/5">
+      nextPath="/module/1/lap/4/result">
       <textarea
         key={'1'}
         className="w-100 h-100 form-control mb-4"

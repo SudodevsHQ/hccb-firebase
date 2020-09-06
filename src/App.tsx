@@ -23,6 +23,7 @@ import {
   LapFourSubjectiveResponse,
 } from './modules/Module-1/Lap-4//index';
 import LapFive from './modules/Module-1/Lap-5/LapFive';
+import LapFourResult from './modules/Module-1/Lap-4/LapFourResult';
 
 const App: React.FunctionComponent = () => {
   return (
@@ -67,6 +68,10 @@ const App: React.FunctionComponent = () => {
         <AnimatedRoute
           path="/module/1/lap/4/why"
           component={LapFourSubjectiveResponse}
+        />
+        <AnimatedRoute
+          path="/module/1/lap/4/result"
+          component={LapFourResult}
         />
         <AnimatedRoute
           path="/module/1/lap/5"
