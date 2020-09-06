@@ -7,7 +7,7 @@ const LapSixIntro: React.FC = () => {
       title="Negotiation"
       lapNumber={6}
       image="presentation"
-      nextPath="/module/1/lap/6">
+      nextPath="/module/1/lap/6/partA">
       <h5 className="text-center p-5" style={{ lineHeight: 1.5 }}>
         Now, as you are done with the budgeting and manpower management. As a
         part of driving sales in your territory with a new product, it’s very

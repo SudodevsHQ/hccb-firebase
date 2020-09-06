@@ -24,7 +24,8 @@ import {
 } from './modules/Module-1/Lap-4//index';
 import LapFive from './modules/Module-1/Lap-5/LapFive';
 import LapFourResult from './modules/Module-1/Lap-4/LapFourResult';
-import { LapSixIntro } from './modules/Module-1/Lap-6/index';
+import { LapSixIntro, LapSixPartB } from './modules/Module-1/Lap-6/index';
+import LapSixPartA from './modules/Module-1/Lap-6/LapSixPartA';
 
 const App: React.FunctionComponent = () => {
   return (
@@ -84,6 +85,8 @@ const App: React.FunctionComponent = () => {
           component={LapSixIntro}
           exact={true}
         />
+        <AnimatedRoute path="/module/1/lap/6/partA" component={LapSixPartA} />
+        <AnimatedRoute path="/module/1/lap/6/partB" component={LapSixPartB} />
       </AnimatedSwitch>
     </BrowserRouter>
   );
