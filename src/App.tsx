@@ -31,6 +31,7 @@ import {
   LapSixResultA,
   LapSixResultB,
 } from './modules/Module-1/Lap-6/index';
+import { ModuleOneConclusion } from './modules/Module-1/ModuleOneConclusion';
 
 const App: React.FunctionComponent = () => {
   return (
@@ -107,6 +108,11 @@ const App: React.FunctionComponent = () => {
         <AnimatedRoute
           path="/module/1/lap/6/partB/result"
           component={LapSixResultB}
+        />
+        <AnimatedRoute
+          path="/module/1/conclusion"
+          component={ModuleOneConclusion}
+          exact
         />
       </AnimatedSwitch>
     </BrowserRouter>

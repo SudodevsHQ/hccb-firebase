@@ -9,7 +9,7 @@ const LapSixResultB: React.FC = () => {
       qualities={[
         'Negotiations are ought to be slow and relational and not fast and transactional. ',
       ]}
-      nextPath="/module/1/lap/6/partB"
+      nextPath="/module/1/conclusion"
       image="completed"
     />
   );

@@ -1,0 +1,16 @@
+@import '../../colors.scss';
+
+.conclusionTitle {
+  font-weight: bold;
+  color: $headerColor;
+}
+
+
+.description {
+    max-width: 30rem;
+    margin: 1rem auto;
+}
+
+.buttons > div {
+    margin-right: 1rem !important;
+}
