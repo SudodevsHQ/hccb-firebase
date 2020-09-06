@@ -5,7 +5,6 @@ export interface moduleOneState {
     choiceB: null | number;
     choiceC: null | number;
     choiceD: null | boolean;
-    savings: null | number;
   };
   lapTwo: {
     choices: null | number[];

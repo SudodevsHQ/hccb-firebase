@@ -3,7 +3,6 @@ import {
   moduleOneActionTypes,
   SetLapOneChoice,
   SingleChoiceAction,
-  SetLapOneSaving,
   SetLapTwoChoices,
   SetLapFiveOrder,
   SetLapFourSubjectiveResponse,
@@ -16,7 +15,6 @@ const moduleOneDefaultState: moduleOneState = {
     choiceB: null,
     choiceC: null,
     choiceD: null,
-    savings: null,
   },
   lapTwo: {
     choices: [],
@@ -47,15 +45,6 @@ const moduleOneReducer = (
         [`choice${
           (action as SetLapOneChoice).option
         }`]: (action as SetLapOneChoice).choice,
-      };
-
-    case 'SET_LAPONE_SAVINGS':
-      return {
-        ...state,
-        lapOne: {
-          ...state.lapOne,
-          savings: (action as SetLapOneSaving).savings,
-        },
       };
 
     case 'SET_LAPTWO_CHOICES':
