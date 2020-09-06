@@ -14,14 +14,17 @@ interface Props {
   question?: React.ReactNode;
   subquestionNumber?: string;
   options: Array<React.ReactNode>;
-  correctOption?: number;
+  numberOfCorrectOptions?: number;
   nextPath: string;
   optionsPerRow: number;
   image: 'graph' | 'dashboard' | 'man' | 'puzzle';
 }
 
-const MCQ: React.FC<Props> = (props: Props) => {
-  const [selectedOption, setSelectedOption] = useState(-1);
+const MCQ: React.FC<Props> = ({
+  numberOfCorrectOptions = 1,
+  ...props
+}: Props) => {
+  const [selectedOptions, setSelectedOptions] = useState<number[]>([]);
 
   return (
     <Layout image={props.image}>
@@ -57,13 +60,19 @@ const MCQ: React.FC<Props> = (props: Props) => {
               <div
                 key={index}
                 onClick={() => {
-                  setSelectedOption(index);
+                  if (
+                    numberOfCorrectOptions > 1 &&
+                    selectedOptions.length < numberOfCorrectOptions
+                  )
+                    setSelectedOptions((prevState) => [...prevState, index]);
+                  else setSelectedOptions(() => [index]);
+                  console.log(selectedOptions);
                 }}
                 className={`
                 col-md-${12 / props.optionsPerRow - 1} 
                 d-flex justify-content-center align-items-center p-4  
                 ${styles.option} 
-                ${index === selectedOption ? styles.selected : ''}`}>
+                ${selectedOptions.includes(index) ? styles.selected : ''}`}>
                 {option}
               </div>
             ))}

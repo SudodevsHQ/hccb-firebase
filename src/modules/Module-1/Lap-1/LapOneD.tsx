@@ -17,7 +17,6 @@ const LapOneD: React.FC = () => {
       question={<p>Do you want to pop up with Truck Vinyl @ 3000 INR ?</p>}
       subquestionNumber={'D'}
       options={['Yes', 'No']}
-      correctOption={1}
       optionsPerRow={2}
       nextPath="/module/1/lap/1/result"
     />

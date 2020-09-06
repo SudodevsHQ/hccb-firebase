@@ -52,7 +52,8 @@ const LapTwo: React.FC = () => {
           new to the city, thus the market is unknown to him.
         </p>,
       ]}
-      optionsPerRow={2}></MCQ>
+      optionsPerRow={2}
+      numberOfCorrectOptions={2}></MCQ>
   );
 };
 
