@@ -1,0 +1,12 @@
+@import '../../colors.scss';
+
+.audio {
+    position: absolute;
+    right: 5%;
+    top: 10px;
+    z-index: 1;
+}
+.audioToggle {
+    font-size: 0.75rem;
+    color: $primaryPurple;
+}
