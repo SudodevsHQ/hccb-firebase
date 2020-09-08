@@ -1,0 +1,12 @@
+diff --git a/node_modules/use-sound/dist/types.d.ts b/node_modules/use-sound/dist/types.d.ts
+index 07c9a28..d4e94e3 100644
+--- a/node_modules/use-sound/dist/types.d.ts
++++ b/node_modules/use-sound/dist/types.d.ts
+@@ -8,6 +8,7 @@ export interface HookOptions {
+     interrupt?: boolean;
+     soundEnabled?: boolean;
+     sprite?: SpriteMap;
++    loop?: boolean;
+     onload?: () => void;
+ }
+ export interface PlayOptions {
