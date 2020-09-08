@@ -36,3 +36,17 @@
 .description {
   font-size: 18px;
 }
+
+.image {
+  animation: fadeup 0.8s ease-in;
+}
+
+@keyframes fadeup {
+  0% {
+    transform: scale(0.5)
+  }
+
+  100% {
+    transform: scale(1);
+  }
+}
