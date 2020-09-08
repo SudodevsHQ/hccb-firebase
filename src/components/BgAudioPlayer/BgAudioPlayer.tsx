@@ -34,7 +34,6 @@ const BgAudioPlayer: React.FC = () => {
             icon={soundOnSolid}
             style={{ color: '#7c57f6', fontSize: '25px' }}
           />
-          Music ON
         </div>
       ) : (
         <div className={`${styles.audioToggle}`}>
@@ -42,7 +41,6 @@ const BgAudioPlayer: React.FC = () => {
             icon={soundOffOutline}
             style={{ color: '#7c57f6', fontSize: '25px' }}
           />
-          Music OFF
         </div>
       )}
     </div>

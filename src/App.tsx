@@ -26,13 +26,12 @@ import {
   LapSixResultB,
 } from './modules/Module-1/Lap-6';
 import { ModuleOneConclusion } from './modules/Module-1/ModuleOneConclusion';
-import BgAudioPlayer from './components/BgAudioPlayer/BgAudioPlayer';
-// import BgAudioPlayer from './components/BgAudioPlayer/BgAudioPlayer';
+import TopBar from './components/TopBar/TopBar';
 
 const App: React.FunctionComponent = () => {
   return (
     <BrowserRouter>
-      <BgAudioPlayer />
+      <TopBar />
       <AnimatedSwitch
         {...pageTransitions}
         //eslint-disable-next-line
