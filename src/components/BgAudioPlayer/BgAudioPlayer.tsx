@@ -7,14 +7,12 @@ import { useLocation } from 'react-router-dom';
 
 import styles from './BgAudioPlayer.module.scss';
 
-// interface Props {}
-
 const BgAudioPlayer: React.FC = () => {
   const [play, { isPlaying, pause }] = useSound(
     '/static/audio/quiz-bg-music.mp3',
     {
       interrupt: true,
-      // loop: true,
+      loop: true,
     },
   );
   const location = useLocation();
