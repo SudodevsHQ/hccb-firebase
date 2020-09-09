@@ -1,0 +1,13 @@
+@import '../../colors.scss';
+
+.audio {
+  background-color: $secondaryPurple;
+  padding: 0.5rem;
+  border-radius: 10px;
+}
+
+.audioToggle {
+  font-size: 0.75rem;
+  color: $primaryPurple;
+  cursor: pointer;
+}

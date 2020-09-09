@@ -1,9 +1,13 @@
-import React, { useState } from 'react';
+// Multiple-Choice Question Component
+
+import React from 'react';
 
 import Layout from '../layout/Layout';
 import styles from './MCQ.module.scss';
 import PrimaryButton from '../primaryButton/primaryButton';
 import ModuleTitle from '../moduleTitle/moduleTitle';
+import { useReduxState } from '../../hooks/useReduxState';
+import { ReduxStore } from '../../interfaces/reduxStore';
 
 interface Props {
   lapNumber: number;
@@ -12,14 +16,31 @@ interface Props {
   question?: React.ReactNode;
   subquestionNumber?: string;
   options: Array<React.ReactNode>;
-  correctOption?: number;
+  numberOfCorrectOptions?: number;
   nextPath: string;
   optionsPerRow: number;
-  image: 'graph' | 'dashboard' | 'man';
+  image:
+    | 'graph'
+    | 'quiz'
+    | 'dashboard'
+    | 'man'
+    | 'analysis'
+    | 'puzzle'
+    | 'presentation';
+  stateSelector: (state: ReduxStore) => null | number | number[] | boolean;
+  error?: string;
 }
 
-const MCQ: React.FC<Props> = (props: Props) => {
-  const [selectedOption, setSelectedOption] = useState(-1);
+const MCQ: React.FC<Props> = ({
+  numberOfCorrectOptions = 1,
+  error = 'Please select an option to continue',
+  ...props
+}: Props) => {
+  const [selectedOptions, setSelectedOptions] = useReduxState(
+    [],
+    props.stateSelector,
+    numberOfCorrectOptions,
+  );
 
   return (
     <Layout image={props.image}>
@@ -29,16 +50,23 @@ const MCQ: React.FC<Props> = (props: Props) => {
         <div className={styles.description}>{props.description}</div>
         <div
           className={`container ${styles.optionsBox} ${
-            props.lapNumber === 2 || props.lapNumber === 3 ? 'p-lg-4' : 'p-lg-5'
+            props.lapNumber !== 1 ? 'p-lg-4' : 'p-lg-5'
           } p-1 p-md-2`}>
-          <div className={`row ${!props.subquestionNumber && 'd-none'}`}>
-            <div className="col-md-1 gx-0">
-              <div className={`${styles.subquestionNumber} text-center p-2`}>
+          <div className={`row ${!props.question && 'd-none'}`}>
+            <div
+              className={`col-md-1 gx-0 ${
+                !props.subquestionNumber && 'd-none'
+              }`}>
+              <div className={`${styles.subquestionNumber}  text-center p-2`}>
                 {props.subquestionNumber}
               </div>
             </div>
             <div
-              className={`col-md-11 ${styles.question} d-flex align-items-center`}>
+              className={`col-md-11 ${
+                styles.question
+              } d-flex align-items-center ${
+                !props.subquestionNumber && 'pl-lg-5 pl-4'
+              }`}>
               {props.question}
             </div>
           </div>
@@ -47,21 +75,24 @@ const MCQ: React.FC<Props> = (props: Props) => {
             {props.options.map((option, index) => (
               <div
                 key={index}
-                onClick={() => {
-                  setSelectedOption(index);
-                }}
+                onClick={() => setSelectedOptions(index)}
                 className={`
                 col-md-${12 / props.optionsPerRow - 1} 
                 d-flex justify-content-center align-items-center p-4  
                 ${styles.option} 
-                ${index === selectedOption ? styles.selected : ''}`}>
+                ${selectedOptions.includes(index) ? styles.selected : ''}`}>
                 {option}
               </div>
             ))}
           </div>
         </div>
         <div className="">
-          <PrimaryButton path={props.nextPath}>Next</PrimaryButton>
+          <PrimaryButton
+            error={error}
+            attempted={selectedOptions.length === numberOfCorrectOptions}
+            path={props.nextPath}>
+            Next
+          </PrimaryButton>
         </div>
       </div>
     </Layout>

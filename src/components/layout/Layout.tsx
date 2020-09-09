@@ -3,13 +3,20 @@ import './Layout.scss';
 import ContentCard from '../ContentCard/ContentCard';
 
 interface Props {
-  image: 'graph' | 'quiz' | 'dashboard' | 'man';
+  image:
+    | 'graph'
+    | 'quiz'
+    | 'dashboard'
+    | 'man'
+    | 'analysis'
+    | 'puzzle'
+    | 'presentation';
   children: React.ReactNode;
 }
 
 const Layout: React.FunctionComponent<Props> = (props: Props) => {
   return (
-    <div className="layout p-5 mx-5">
+    <div className="layout p-5 mx-5 mt-3">
       <div className="row h-100 align-items-center">
         <div className="col-md-4 gx-0">
           <img

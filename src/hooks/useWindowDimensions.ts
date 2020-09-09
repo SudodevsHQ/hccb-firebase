@@ -30,7 +30,7 @@ const useWindowDimensions = (): WindowDimensions => {
       window.addEventListener('resize', handleResize);
       return () => window.removeEventListener('resize', handleResize);
     }
-    // TODO: Remove this
+    // eslint-disable-next-line
   }, [hasWindow]);
 
   return windowDimensions;

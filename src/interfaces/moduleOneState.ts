@@ -1,11 +1,10 @@
-export interface moduleOneState {
+export interface ModuleOneState {
   lapOne: {
     amount: number;
     choiceA: null | number;
     choiceB: null | number;
-    choiceC: null | number;
+    choiceC: null | boolean;
     choiceD: null | boolean;
-    savings: null | number;
   };
   lapTwo: {
     choices: null | number[];
@@ -15,11 +14,13 @@ export interface moduleOneState {
   };
   lapFour: {
     choice: null | number;
+    subjectiveResponse?: string;
   };
   lapFive: {
     order: number[];
   };
   lapSix: {
-    choice: null | number;
+    choiceA: null | number;
+    choiceB: null | number;
   };
 }
