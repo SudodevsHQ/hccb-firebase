@@ -17,7 +17,14 @@ interface Props {
   correctOption?: number;
   nextPath: string;
   optionsPerRow: number;
-  image: 'graph' | 'dashboard' | 'man' | 'puzzle' | 'presentation';
+  image:
+    | 'graph'
+    | 'quiz'
+    | 'dashboard'
+    | 'man'
+    | 'analysis'
+    | 'puzzle'
+    | 'presentation';
 }
 
 const MCQ: React.FC<Props> = (props: Props) => {
