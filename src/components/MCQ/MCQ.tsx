@@ -28,10 +28,12 @@ interface Props {
     | 'puzzle'
     | 'presentation';
   stateSelector: (state: ReduxStore) => null | number | number[] | boolean;
+  error?: string;
 }
 
 const MCQ: React.FC<Props> = ({
   numberOfCorrectOptions = 1,
+  error = 'Please select an option to continue',
   ...props
 }: Props) => {
   const [selectedOptions, setSelectedOptions] = useReduxState(
@@ -86,6 +88,7 @@ const MCQ: React.FC<Props> = ({
         </div>
         <div className="">
           <PrimaryButton
+            error={error}
             attempted={selectedOptions.length === numberOfCorrectOptions}
             path={props.nextPath}>
             Next

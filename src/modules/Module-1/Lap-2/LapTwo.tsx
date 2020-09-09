@@ -54,6 +54,7 @@ const LapTwo: React.FC = () => {
       ]}
       optionsPerRow={2}
       numberOfCorrectOptions={2}
+      error="Please select two options!"
       stateSelector={(state) => state.moduleOne.lapTwo.choices}></MCQ>
   );
 };
