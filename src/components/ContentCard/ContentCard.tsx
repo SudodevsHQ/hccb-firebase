@@ -9,7 +9,7 @@ interface Props {
 const ContentCard: React.FunctionComponent<Props> = (props: Props) => {
   return (
     <div
-      className={`${style.card} p-5 d-flex flex-column justify-content-center`}>
+      className={`${style.card} py-4 px-3 p-sm-5 d-flex flex-column justify-content-center`}>
       {props.children}
     </div>
   );

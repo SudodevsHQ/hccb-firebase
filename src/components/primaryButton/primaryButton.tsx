@@ -32,7 +32,7 @@ const PrimaryButton: React.FC<Props> = ({ validation, ...props }: Props) => {
             toast.error(props.error);
           }
         }}
-        className={`btn px-md-5 mt-4 ${style.button}`}>
+        className={`btn px-md-5 px-4 mt-4 ${style.button}`}>
         {props.children}
         <Icon
           icon={bxRightArrowAlt}

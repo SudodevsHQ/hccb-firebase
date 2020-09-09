@@ -44,25 +44,29 @@ const MCQ: React.FC<Props> = ({
 
   return (
     <Layout image={props.image}>
-      <div className="container px-xl-5 px-md-2">
+      <div className="container px-xl-5 px-md-2 d-flex flex-column h-100">
         <ModuleTitle title={props.title} lapNumber={props.lapNumber} />
 
         <div className={styles.description}>{props.description}</div>
         <div
-          className={`container ${styles.optionsBox} ${
+          className={`container ${
+            styles.optionsBox
+          } flex-grow-1 d-flex flex-column justify-content-center ${
             props.lapNumber !== 1 ? 'p-lg-4' : 'p-lg-5'
-          } p-1 p-md-2`}>
-          <div className={`row ${!props.question && 'd-none'}`}>
+          } px-3 p-md-2`}>
+          <div
+            className={`row px-2 flex-grow-0 ${!props.question && 'd-none'}`}>
             <div
-              className={`col-md-1 gx-0 ${
+              className={`col-md-1 d-none d-md-block gx-0 ${
                 !props.subquestionNumber && 'd-none'
               }`}>
-              <div className={`${styles.subquestionNumber}  text-center p-2`}>
+              <div
+                className={`${styles.subquestionNumber}  text-center p-0 p-md-2`}>
                 {props.subquestionNumber}
               </div>
             </div>
             <div
-              className={`col-md-11 ${
+              className={`col-md-11 pt-2 pt-sm-0 ${
                 styles.question
               } d-flex align-items-center ${
                 !props.subquestionNumber && 'pl-lg-5 pl-4'
@@ -71,14 +75,14 @@ const MCQ: React.FC<Props> = ({
             </div>
           </div>
           <div
-            className={`row justify-content-center px-md-4 ${styles.optionsWrapper}`}>
+            className={`row flex-grow-0 justify-content-center px-4 ${styles.optionsWrapper}`}>
             {props.options.map((option, index) => (
               <div
                 key={index}
                 onClick={() => setSelectedOptions(index)}
                 className={`
                 col-md-${12 / props.optionsPerRow - 1} 
-                d-flex justify-content-center align-items-center p-4  
+                d-flex justify-content-center align-items-center p-xl-4  
                 ${styles.option} 
                 ${selectedOptions.includes(index) ? styles.selected : ''}`}>
                 {option}

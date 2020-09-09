@@ -3,13 +3,7 @@
 .droppableWrapper {
   max-height: 50vh;
   overflow-y: auto;
-  &::-webkit-scrollbar-thumb {
-    background-color: $primaryPurple;
-    border-radius: 30px;
-  }
-  &::-webkit-scrollbar {
-    width: 0.3rem;
-  }
+ 
 }
 
 .index {

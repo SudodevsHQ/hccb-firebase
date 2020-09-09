@@ -20,9 +20,10 @@ const Introduction: React.FC<Props> = ({
 }: Props) => {
   return (
     <Layout image={image}>
-      <div className={`${style.wrapper} px-lg-4 `}>
-        <h1 className={`${style.title} mb-3`}>{title}</h1>
-        {children}
+      <div className={`${style.wrapper} px-lg-4 d-flex flex-column `}>
+        <h2 className={`${style.title} mb-3`}>{title}</h2>
+        <div className={`${style.textWrapper} flex-grow-1`}>{children}</div>
+
         <PrimaryButton attempted={true} path={nextPath}>
           {primaryButtonText}
         </PrimaryButton>
