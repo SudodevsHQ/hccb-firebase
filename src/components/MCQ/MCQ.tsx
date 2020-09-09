@@ -39,6 +39,7 @@ const MCQ: React.FC<Props> = ({
     props.stateSelector,
     numberOfCorrectOptions,
   );
+
   return (
     <Layout image={props.image}>
       <div className="container px-xl-5 px-md-2">

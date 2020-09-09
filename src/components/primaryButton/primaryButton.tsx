@@ -17,6 +17,7 @@ const PrimaryButton: React.FC<Props> = ({
   ...props
 }: Props) => {
   const history = useHistory();
+
   return (
     <div className="d-flex justify-content-center">
       <button

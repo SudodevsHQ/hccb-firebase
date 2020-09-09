@@ -1,13 +1,17 @@
 /* eslint-disable  @typescript-eslint/no-explicit-any */
 import moduleOneReducer from '../reducers/moduleOneReducer';
-import { combineReducers, createStore, Store, CombinedState } from 'redux';
-import { ReduxStore } from '../../interfaces/reduxStore';
-import { moduleOneActionTypes } from '../../interfaces/moduleOneAction.types';
+import { combineReducers, createStore } from 'redux';
+import miscReducer from '../reducers/miscReducer';
 
 const rootReducer = combineReducers({
   moduleOne: moduleOneReducer,
+  misc: miscReducer,
 });
-export default (): Store<CombinedState<ReduxStore>, moduleOneActionTypes> => {
+
+// TODO: Remove eslint disable
+
+//eslint-disable-next-line
+export default () => {
   const store = createStore(
     rootReducer,
     (window as any).__REDUX_DEVTOOLS_EXTENSION__ &&
