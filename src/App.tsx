@@ -68,6 +68,7 @@ const App: React.FunctionComponent = () => {
           path="/module/1/lap/4/why"
           component={LapFourSubjectiveResponse}
         />
+
         <AnimatedRoute
           path="/module/1/lap/5"
           component={LapFive}

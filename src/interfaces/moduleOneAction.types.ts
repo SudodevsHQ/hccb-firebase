@@ -1,7 +1,12 @@
-export interface SetLapOneChoice {
+export interface SetLapOneChoiceNum {
   type: string;
-  option: string;
-  choice: number | boolean;
+  option: 'A' | 'B';
+  choice: number;
+}
+export interface SetLapOneChoiceBool {
+  type: string;
+  option: 'C' | 'D';
+  choice: boolean;
 }
 
 export interface SetLapOneSaving {
@@ -31,7 +36,8 @@ export interface SetLapFiveOrder {
 }
 
 export type moduleOneActionTypes =
-  | SetLapOneChoice
+  | SetLapOneChoiceNum
+  | SetLapOneChoiceBool
   | SingleChoiceAction
   | SetLapFiveOrder
   | SetLapTwoChoices

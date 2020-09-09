@@ -1,19 +1,27 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
 import { Icon } from '@iconify/react';
 import bxRightArrowAlt from '@iconify/icons-bx/bx-right-arrow-alt';
 
 import style from './primaryButton.module.scss';
+import { useHistory } from 'react-router-dom';
 
 interface Props {
   path: string;
+  attempted: boolean;
   children: React.ReactNode;
 }
 
 const PrimaryButton: React.FC<Props> = (props: Props) => {
+  const history = useHistory();
   return (
     <div className="d-flex justify-content-center">
-      <Link to={props.path} className={`btn px-md-5 mt-4 ${style.button}`}>
+      <button
+        onClick={() => {
+          if (props.attempted) {
+            history.push(props.path);
+          }
+        }}
+        className={`btn px-md-5 mt-4 ${style.button}`}>
         {props.children}
         <Icon
           icon={bxRightArrowAlt}
@@ -23,7 +31,7 @@ const PrimaryButton: React.FC<Props> = (props: Props) => {
             marginTop: '-0.125em',
           }}
         />
-      </Link>
+      </button>
     </div>
   );
 };

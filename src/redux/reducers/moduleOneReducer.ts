@@ -1,11 +1,12 @@
 import { moduleOneState } from '../../interfaces/moduleOneState';
 import {
   moduleOneActionTypes,
-  SetLapOneChoice,
   SingleChoiceAction,
   SetLapTwoChoices,
   SetLapFiveOrder,
   SetLapFourSubjectiveResponse,
+  SetLapOneChoiceNum,
+  SetLapOneChoiceBool,
 } from '../../interfaces/moduleOneAction.types';
 
 const moduleOneDefaultState: moduleOneState = {
@@ -39,13 +40,41 @@ const moduleOneReducer = (
   action: moduleOneActionTypes,
 ): moduleOneState => {
   switch (action.type) {
-    case 'SET_LAPONE_CHOICE':
+    case 'SET_LAPONE_CHOICE_NUM': {
+      const amount =
+        state.lapOne.amount -
+        state.lapOne.amount * 0.01 * (action as SetLapOneChoiceNum).choice;
       return {
         ...state,
-        [`choice${
-          (action as SetLapOneChoice).option
-        }`]: (action as SetLapOneChoice).choice,
+        lapOne: {
+          ...state.lapOne,
+          [`choice${
+            (action as SetLapOneChoiceNum).option
+          }`]: (action as SetLapOneChoiceNum).choice,
+          amount,
+        },
       };
+    }
+
+    case 'SET_LAPONE_CHOICE_BOOL': {
+      let amount = 0;
+
+      if ((action as SetLapOneChoiceBool).choice) {
+        const deduction =
+          (action as SetLapOneChoiceBool).option === 'C' ? 1000 : 3000;
+        amount = state.lapOne.amount - deduction;
+      }
+      return {
+        ...state,
+        lapOne: {
+          ...state.lapOne,
+          [`choice${
+            (action as SetLapOneChoiceNum).option
+          }`]: (action as SetLapOneChoiceNum).choice,
+          amount,
+        },
+      };
+    }
 
     case 'SET_LAPTWO_CHOICES':
       return {

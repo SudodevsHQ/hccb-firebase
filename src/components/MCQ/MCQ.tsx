@@ -20,6 +20,20 @@ interface Props {
   image: 'graph' | 'dashboard' | 'man' | 'puzzle';
 }
 
+const handleOptionSelect = (
+  index: number,
+  numberOfCorrectOptions: number,
+  selectedOptions: number[],
+  setSelectedOptions: React.Dispatch<React.SetStateAction<number[]>>,
+) => {
+  if (
+    numberOfCorrectOptions > 1 &&
+    selectedOptions.length < numberOfCorrectOptions
+  )
+    setSelectedOptions((prevState) => [...prevState, index]);
+  else setSelectedOptions(() => [index]);
+};
+
 const MCQ: React.FC<Props> = ({
   numberOfCorrectOptions = 1,
   ...props
@@ -59,15 +73,14 @@ const MCQ: React.FC<Props> = ({
             {props.options.map((option, index) => (
               <div
                 key={index}
-                onClick={() => {
-                  if (
-                    numberOfCorrectOptions > 1 &&
-                    selectedOptions.length < numberOfCorrectOptions
+                onClick={() =>
+                  handleOptionSelect(
+                    index,
+                    numberOfCorrectOptions,
+                    selectedOptions,
+                    setSelectedOptions,
                   )
-                    setSelectedOptions((prevState) => [...prevState, index]);
-                  else setSelectedOptions(() => [index]);
-                  console.log(selectedOptions);
-                }}
+                }
                 className={`
                 col-md-${12 / props.optionsPerRow - 1} 
                 d-flex justify-content-center align-items-center p-4  
@@ -79,7 +92,11 @@ const MCQ: React.FC<Props> = ({
           </div>
         </div>
         <div className="">
-          <PrimaryButton path={props.nextPath}>Next</PrimaryButton>
+          <PrimaryButton
+            attempted={selectedOptions.length === numberOfCorrectOptions}
+            path={props.nextPath}>
+            Next
+          </PrimaryButton>
         </div>
       </div>
     </Layout>

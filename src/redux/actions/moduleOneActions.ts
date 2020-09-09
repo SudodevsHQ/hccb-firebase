@@ -1,14 +1,27 @@
 import {
   moduleOneActionTypes,
   SetLapFourSubjectiveResponse,
+  SetLapOneChoiceNum,
+  SetLapOneChoiceBool,
 } from '../../interfaces/moduleOneAction.types';
 
-export const setLapOneChoice = (
-  option: string,
-  choice: number | boolean,
-): moduleOneActionTypes => {
+export const setLapOneChoiceNum = (
+  option: 'A' | 'B',
+  choice: number,
+): SetLapOneChoiceNum => {
   return {
-    type: 'SET_LAPONE_CHOICE',
+    type: 'SET_LAPONE_CHOICE_NUM',
+    option,
+    choice,
+  };
+};
+
+export const setLapOneChoiceBool = (
+  option: 'C' | 'D',
+  choice: boolean,
+): SetLapOneChoiceBool => {
+  return {
+    type: 'SET_LAPONE_CHOICE_BOOL',
     option,
     choice,
   };
