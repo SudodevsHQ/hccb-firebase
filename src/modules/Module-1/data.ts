@@ -1,4 +1,30 @@
-export const moduleOneData = {
+import {
+  setLapOneSaving,
+  setLapTwoChoices,
+  setLapThreeChoice,
+  setLapFourChoice,
+  setLapFourSubjectiveResponse,
+  setLapFiveOrder,
+  setLapSixChoice,
+  setLapOneChoiceNumA,
+  setLapOneChoiceNumB,
+  setLapOneChoiceBoolC,
+  setLapOneChoiceBoolD,
+} from '../../redux/actions/moduleOneActions';
+
+export const lapOnedata = {
+  moduleOne: {
+    lapOne: {
+      amount: 20000,
+      A: [10, 25, 50],
+      B: [10, 25, 50],
+      C: [true, false],
+      D: [true, false],
+    },
+  },
+};
+
+export const moduleOneResultData = {
   lapOne: (saving: number): string[] => {
     if (saving >= 2000 && saving < 5000) {
       return ['Highly Enthusatic', 'Short term thinker'];
@@ -55,5 +81,33 @@ export const moduleOneData = {
   lapSix: {
     1: 2,
     2: 1,
+  },
+};
+
+export const actionBuilderMap = {
+  moduleOne: {
+    lapOne: {
+      amount: setLapOneSaving,
+      choiceA: setLapOneChoiceNumA,
+      choiceB: setLapOneChoiceNumB,
+      choiceC: setLapOneChoiceBoolC,
+      choiceD: setLapOneChoiceBoolD,
+    },
+    lapTwo: {
+      choices: setLapTwoChoices,
+    },
+    lapThree: {
+      choice: setLapThreeChoice,
+    },
+    lapFour: {
+      choice: setLapFourChoice,
+      subjectiveResponse: setLapFourSubjectiveResponse,
+    },
+    lapFive: {
+      order: setLapFiveOrder,
+    },
+    lapSix: {
+      choice: setLapSixChoice,
+    },
   },
 };

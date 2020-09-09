@@ -1,4 +1,4 @@
-import { moduleOneState } from '../../interfaces/moduleOneState';
+import { ModuleOneState } from '../../interfaces/moduleOneState';
 import {
   moduleOneActionTypes,
   SingleChoiceAction,
@@ -9,7 +9,7 @@ import {
   SetLapOneChoiceBool,
 } from '../../interfaces/moduleOneAction.types';
 
-const moduleOneDefaultState: moduleOneState = {
+const moduleOneDefaultState: ModuleOneState = {
   lapOne: {
     amount: 20000,
     choiceA: null,
@@ -38,7 +38,7 @@ const moduleOneDefaultState: moduleOneState = {
 const moduleOneReducer = (
   state = moduleOneDefaultState,
   action: moduleOneActionTypes,
-): moduleOneState => {
+): ModuleOneState => {
   switch (action.type) {
     case 'SET_LAPONE_CHOICE_NUM': {
       const amount =
@@ -57,7 +57,7 @@ const moduleOneReducer = (
     }
 
     case 'SET_LAPONE_CHOICE_BOOL': {
-      let amount = 0;
+      let amount = state.lapOne.amount;
 
       if ((action as SetLapOneChoiceBool).choice) {
         const deduction =

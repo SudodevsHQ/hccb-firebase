@@ -1,9 +1,9 @@
-export interface moduleOneState {
+export interface ModuleOneState {
   lapOne: {
     amount: number;
     choiceA: null | number;
     choiceB: null | number;
-    choiceC: null | number;
+    choiceC: null | boolean;
     choiceD: null | boolean;
   };
   lapTwo: {

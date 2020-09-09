@@ -25,6 +25,7 @@ const LapOneB: React.FC = () => {
       options={['10%', '25%', '50%']}
       optionsPerRow={3}
       nextPath="/module/1/lap/1/c"
+      stateSelector={(state) => state.moduleOne.lapOne.choiceB}
     />
   );
 };

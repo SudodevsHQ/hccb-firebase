@@ -14,7 +14,8 @@ const LapFour: React.FC = () => {
         'Delegating to the employees',
         'Telling and Directing',
       ]}
-      optionsPerRow={2}></MCQ>
+      optionsPerRow={2}
+      stateSelector={(state) => state.moduleOne.lapFour.choice}></MCQ>
   );
 };
 

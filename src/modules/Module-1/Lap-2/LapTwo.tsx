@@ -53,7 +53,8 @@ const LapTwo: React.FC = () => {
         </p>,
       ]}
       optionsPerRow={2}
-      numberOfCorrectOptions={2}></MCQ>
+      numberOfCorrectOptions={2}
+      stateSelector={(state) => state.moduleOne.lapTwo.choices}></MCQ>
   );
 };
 

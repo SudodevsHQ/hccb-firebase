@@ -44,7 +44,8 @@ const LapThree: React.FC = () => {
           even in a tiring condition.
         </p>,
       ]}
-      optionsPerRow={2}></MCQ>
+      optionsPerRow={2}
+      stateSelector={(state) => state.moduleOne.lapThree.choice}></MCQ>
   );
 };
 

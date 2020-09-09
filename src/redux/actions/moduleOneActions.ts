@@ -4,26 +4,37 @@ import {
   SetLapOneChoiceNum,
   SetLapOneChoiceBool,
 } from '../../interfaces/moduleOneAction.types';
+import { lapOnedata } from '../../modules/Module-1/data';
 
-export const setLapOneChoiceNum = (
-  option: 'A' | 'B',
-  choice: number,
-): SetLapOneChoiceNum => {
+export const setLapOneChoiceNumA = (choice: number): SetLapOneChoiceNum => {
   return {
     type: 'SET_LAPONE_CHOICE_NUM',
-    option,
-    choice,
+    option: 'A',
+    choice: lapOnedata.moduleOne.lapOne.A[choice],
   };
 };
 
-export const setLapOneChoiceBool = (
-  option: 'C' | 'D',
-  choice: boolean,
-): SetLapOneChoiceBool => {
+export const setLapOneChoiceNumB = (choice: number): SetLapOneChoiceNum => {
+  return {
+    type: 'SET_LAPONE_CHOICE_NUM',
+    option: 'B',
+    choice: lapOnedata.moduleOne.lapOne.B[choice],
+  };
+};
+
+export const setLapOneChoiceBoolC = (choice: number): SetLapOneChoiceBool => {
   return {
     type: 'SET_LAPONE_CHOICE_BOOL',
-    option,
-    choice,
+    option: 'C',
+    choice: lapOnedata.moduleOne.lapOne.C[choice],
+  };
+};
+
+export const setLapOneChoiceBoolD = (choice: number): SetLapOneChoiceBool => {
+  return {
+    type: 'SET_LAPONE_CHOICE_BOOL',
+    option: 'D',
+    choice: lapOnedata.moduleOne.lapOne.D[choice],
   };
 };
 

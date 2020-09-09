@@ -1,11 +1,13 @@
 // Multiple-Choice Question Component
 
-import React, { useState } from 'react';
+import React from 'react';
 
 import Layout from '../layout/Layout';
 import styles from './MCQ.module.scss';
 import PrimaryButton from '../primaryButton/primaryButton';
 import ModuleTitle from '../moduleTitle/moduleTitle';
+import { useReduxState } from '../../hooks/useReduxState';
+import { ReduxStore } from '../../interfaces/reduxStore';
 
 interface Props {
   lapNumber: number;
@@ -18,28 +20,18 @@ interface Props {
   nextPath: string;
   optionsPerRow: number;
   image: 'graph' | 'dashboard' | 'man' | 'puzzle';
+  stateSelector: (state: ReduxStore) => null | number | number[] | boolean;
 }
-
-const handleOptionSelect = (
-  index: number,
-  numberOfCorrectOptions: number,
-  selectedOptions: number[],
-  setSelectedOptions: React.Dispatch<React.SetStateAction<number[]>>,
-) => {
-  if (
-    numberOfCorrectOptions > 1 &&
-    selectedOptions.length < numberOfCorrectOptions
-  )
-    setSelectedOptions((prevState) => [...prevState, index]);
-  else setSelectedOptions(() => [index]);
-};
 
 const MCQ: React.FC<Props> = ({
   numberOfCorrectOptions = 1,
   ...props
 }: Props) => {
-  const [selectedOptions, setSelectedOptions] = useState<number[]>([]);
-
+  const [selectedOptions, setSelectedOptions] = useReduxState(
+    [],
+    props.stateSelector,
+    numberOfCorrectOptions,
+  );
   return (
     <Layout image={props.image}>
       <div className="container px-xl-5 px-md-2">
@@ -73,14 +65,7 @@ const MCQ: React.FC<Props> = ({
             {props.options.map((option, index) => (
               <div
                 key={index}
-                onClick={() =>
-                  handleOptionSelect(
-                    index,
-                    numberOfCorrectOptions,
-                    selectedOptions,
-                    setSelectedOptions,
-                  )
-                }
+                onClick={() => setSelectedOptions(index)}
                 className={`
                 col-md-${12 / props.optionsPerRow - 1} 
                 d-flex justify-content-center align-items-center p-4  
