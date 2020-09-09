@@ -30,10 +30,10 @@
   .textWrapper {
     line-height: normal;
     font-size: 1.2rem;
-    // max-height: 50%;
     overflow-y: auto;
     border: 1px solid #4a4b5713;
     padding: 0.5rem;
+    flex-grow: 1;
   }
 
 

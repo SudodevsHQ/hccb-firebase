@@ -6,7 +6,7 @@
   font-weight: normal;
   line-height: 1.75;
   color: $descriptionTextColor;
-  margin-bottom: 1.5rem;
+  margin-bottom: 1rem;
 }
 
 .subquestionNumber {
@@ -35,8 +35,7 @@
 .optionsBox {
   background: $secondaryPurple;
   border-radius: 30px;
-  // display: flex;
-  // flex-direction: column;
+
   div {
     flex-basis: auto;
   }
@@ -47,7 +46,7 @@
   box-sizing: border-box;
   border-radius: 30px;
   flex-grow: 1;
-  // min-height: 20vh;
+  min-height: 20vh;
   margin: 10px;
   color: $primaryPurple;
   font-size: 1.2rem;
@@ -96,9 +95,16 @@
   }
 
   .optionsWrapper {
-    height: 25vh;
+    // height: 25vh;
     .option {
+      min-height: auto;
       margin: 5px 0;
+      padding: 0.5rem;
+      p {
+        font-size: 0.75rem;
+        line-height: normal;
+        margin-bottom: 0;
+      }
     }
   }
   .question {

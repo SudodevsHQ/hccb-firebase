@@ -44,7 +44,8 @@ const MCQ: React.FC<Props> = ({
 
   return (
     <Layout image={props.image}>
-      <div className="container px-xl-5 px-md-2 d-flex flex-column h-100">
+      <div
+        className={`container px-xl-5 px-md-2 d-flex flex-column h-100 ${styles.MCQWrapper}`}>
         <ModuleTitle title={props.title} lapNumber={props.lapNumber} />
 
         <div className={styles.description}>{props.description}</div>
@@ -75,7 +76,7 @@ const MCQ: React.FC<Props> = ({
             </div>
           </div>
           <div
-            className={`row flex-grow-0 justify-content-center px-4 ${styles.optionsWrapper}`}>
+            className={`row flex-grow-0 justify-content-center px-sm-4 px-2 py-2 ${styles.optionsWrapper}`}>
             {props.options.map((option, index) => (
               <div
                 key={index}

@@ -22,7 +22,7 @@ const Introduction: React.FC<Props> = ({
     <Layout image={image}>
       <div className={`${style.wrapper} px-lg-4 d-flex flex-column `}>
         <h2 className={`${style.title} mb-3`}>{title}</h2>
-        <div className={`${style.textWrapper} flex-grow-1`}>{children}</div>
+        <div className={`${style.textWrapper}`}>{children}</div>
 
         <PrimaryButton attempted={true} path={nextPath}>
           {primaryButtonText}
