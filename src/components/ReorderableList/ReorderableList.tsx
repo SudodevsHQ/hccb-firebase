@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import {
   DragDropContext,
   Droppable,
@@ -11,6 +11,9 @@ import { Icon } from '@iconify/react';
 import arrowDown from '@iconify/icons-bx/bx-up-arrow';
 import arrowUp from '@iconify/icons-bx/bx-down-arrow';
 import { moduleOneResultData } from '../../modules/Module-1/data';
+import { shuffleArray } from '../../util/arrayUtils';
+import { useDispatch } from 'react-redux';
+import { setLapFiveOrder } from '../../redux/actions/moduleOneActions';
 
 const reorder = (
   list: Array<{ id: number; content: string }>,
@@ -19,13 +22,23 @@ const reorder = (
 ): Array<{ id: number; content: string }> => {
   const [removed] = list.splice(startIndex, 1);
   list.splice(endIndex, 0, removed);
-
   return list;
 };
 
 const ReorderableList: React.FC = () => {
   const executionStepList = moduleOneResultData.lapFive;
   const [steps, setSteps] = useState(executionStepList);
+  const dispatch = useDispatch();
+
+  useEffect(() => {
+    shuffleArray(steps);
+  }, [steps]);
+
+  useEffect(() => {
+    // Set order on mount after shuffle
+    dispatch(setLapFiveOrder(steps.map((item) => item.id)));
+  }, [dispatch, steps]);
+
   const handleDragEnd = (result: DropResult) => {
     if (!result.destination) {
       return;
@@ -33,7 +46,7 @@ const ReorderableList: React.FC = () => {
     const items = reorder(steps, result.source.index, result.destination.index);
     setSteps(items);
     const postDropIndexes = steps.map((item) => item.id);
-    console.log(postDropIndexes);
+    dispatch(setLapFiveOrder(postDropIndexes));
   };
 
   return (

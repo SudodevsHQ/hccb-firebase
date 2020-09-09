@@ -13,20 +13,21 @@ interface Props {
   attempted: boolean;
   children: React.ReactNode;
   error?: string;
-  validationFunction?: () => boolean;
+  validation?: boolean;
 }
 
-const PrimaryButton: React.FC<Props> = ({
-  validationFunction = () => false,
-  ...props
-}: Props) => {
+const PrimaryButton: React.FC<Props> = ({ validation, ...props }: Props) => {
   const history = useHistory();
 
   return (
     <div className="d-flex justify-content-center">
       <button
         onClick={() => {
-          if (props.attempted || validationFunction()) {
+          console.log(props.attempted, validation);
+          if (
+            props.attempted &&
+            (validation === undefined || validation === true)
+          ) {
             history.push(props.path);
           } else {
             toast.error(props.error);
