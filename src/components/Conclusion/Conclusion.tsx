@@ -34,10 +34,10 @@ const Conclusion: React.FC<Props> = (props: Props) => {
 
         <div className={`${styles.description}`}>{props.description}</div>
         <div className={`d-flex justify-content-center my-2 ${styles.buttons}`}>
-          <PrimaryButton path={props.nextPath}>
+          <PrimaryButton attempted={true} path={props.nextPath}>
             See Results for all Laps
           </PrimaryButton>
-          <PrimaryButton path={props.downloadUrl}>
+          <PrimaryButton attempted={true} path={props.downloadUrl}>
             Download Results
           </PrimaryButton>
         </div>

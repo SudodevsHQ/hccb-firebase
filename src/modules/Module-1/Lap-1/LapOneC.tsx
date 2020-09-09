@@ -24,6 +24,7 @@ const LapOneC: React.FC = () => {
       options={['Yes', 'No']}
       optionsPerRow={3}
       nextPath="/module/1/lap/1/d"
+      stateSelector={(state) => state.moduleOne.lapOne.choiceC}
     />
   );
 };

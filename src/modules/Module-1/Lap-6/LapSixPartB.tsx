@@ -21,6 +21,7 @@ const LapSixPartA: React.FC = () => {
         </p>,
       ]}
       optionsPerRow={2}
+      stateSelector={(state) => state.moduleOne.lapSix.choiceB}
     />
   );
 };

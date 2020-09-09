@@ -52,7 +52,9 @@ const SCQ: React.FC<Props> = (props: Props) => {
           </div>
         </div>
         <div className="">
-          <PrimaryButton path={props.nextPath}>Next</PrimaryButton>
+          <PrimaryButton attempted={true} path={props.nextPath}>
+            Next
+          </PrimaryButton>
         </div>
       </div>
     </Layout>

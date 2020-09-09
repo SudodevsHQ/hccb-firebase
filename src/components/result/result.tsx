@@ -80,7 +80,9 @@ const Result: React.FC<Props> = ({ image = 'result', ...props }: Props) => {
 
         <div className={styles.remark}>{props.remark}</div>
 
-        <PrimaryButton path={props.nextPath}>Next Lap</PrimaryButton>
+        <PrimaryButton attempted={true} path={props.nextPath}>
+          Next Lap
+        </PrimaryButton>
       </HeroCard>
     </div>
   );

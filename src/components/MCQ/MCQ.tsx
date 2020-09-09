@@ -1,11 +1,13 @@
 // Multiple-Choice Question Component
 
-import React, { useState } from 'react';
+import React from 'react';
 
 import Layout from '../layout/Layout';
 import styles from './MCQ.module.scss';
 import PrimaryButton from '../primaryButton/primaryButton';
 import ModuleTitle from '../moduleTitle/moduleTitle';
+import { useReduxState } from '../../hooks/useReduxState';
+import { ReduxStore } from '../../interfaces/reduxStore';
 
 interface Props {
   lapNumber: number;
@@ -14,7 +16,7 @@ interface Props {
   question?: React.ReactNode;
   subquestionNumber?: string;
   options: Array<React.ReactNode>;
-  correctOption?: number;
+  numberOfCorrectOptions?: number;
   nextPath: string;
   optionsPerRow: number;
   image:
@@ -25,11 +27,18 @@ interface Props {
     | 'analysis'
     | 'puzzle'
     | 'presentation';
+  stateSelector: (state: ReduxStore) => null | number | number[] | boolean;
 }
 
-const MCQ: React.FC<Props> = (props: Props) => {
-  const [selectedOption, setSelectedOption] = useState(-1);
-
+const MCQ: React.FC<Props> = ({
+  numberOfCorrectOptions = 1,
+  ...props
+}: Props) => {
+  const [selectedOptions, setSelectedOptions] = useReduxState(
+    [],
+    props.stateSelector,
+    numberOfCorrectOptions,
+  );
   return (
     <Layout image={props.image}>
       <div className="container px-xl-5 px-md-2">
@@ -63,21 +72,23 @@ const MCQ: React.FC<Props> = (props: Props) => {
             {props.options.map((option, index) => (
               <div
                 key={index}
-                onClick={() => {
-                  setSelectedOption(index);
-                }}
+                onClick={() => setSelectedOptions(index)}
                 className={`
                 col-md-${12 / props.optionsPerRow - 1} 
                 d-flex justify-content-center align-items-center p-4  
                 ${styles.option} 
-                ${index === selectedOption ? styles.selected : ''}`}>
+                ${selectedOptions.includes(index) ? styles.selected : ''}`}>
                 {option}
               </div>
             ))}
           </div>
         </div>
         <div className="">
-          <PrimaryButton path={props.nextPath}>Next</PrimaryButton>
+          <PrimaryButton
+            attempted={selectedOptions.length === numberOfCorrectOptions}
+            path={props.nextPath}>
+            Next
+          </PrimaryButton>
         </div>
       </div>
     </Layout>

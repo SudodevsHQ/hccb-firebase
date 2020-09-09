@@ -23,7 +23,9 @@ const Introduction: React.FC<Props> = ({
       <div className={`${style.wrapper} px-lg-4 `}>
         <h1 className={`${style.title} mb-3`}>{title}</h1>
         {children}
-        <PrimaryButton path={nextPath}>{primaryButtonText}</PrimaryButton>
+        <PrimaryButton attempted={true} path={nextPath}>
+          {primaryButtonText}
+        </PrimaryButton>
       </div>
     </Layout>
   );
