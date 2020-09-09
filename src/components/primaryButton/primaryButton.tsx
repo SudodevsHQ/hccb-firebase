@@ -23,7 +23,6 @@ const PrimaryButton: React.FC<Props> = ({ validation, ...props }: Props) => {
     <div className="d-flex justify-content-center">
       <button
         onClick={() => {
-          console.log(props.attempted, validation);
           if (
             props.attempted &&
             (validation === undefined || validation === true)

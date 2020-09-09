@@ -7,7 +7,7 @@ export interface MiscState {
 
 export const miscDefaultState: MiscState = {
   currentLap: 0,
-  playing: true,
+  playing: false,
 };
 
 const miscReducer = (
