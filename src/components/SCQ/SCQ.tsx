@@ -28,7 +28,8 @@ const SCQ: React.FC<Props> = (props: Props) => {
         <ModuleTitle title={props.title} lapNumber={props.lapNumber} />
 
         <div className={MCQStyles.description}>{props.description}</div>
-        <div className={`container ${MCQStyles.optionsBox} p-lg-4 p-1 p-md-2`}>
+        <div
+          className={`container ${MCQStyles.optionsBox} p-lg-4 px-4 py-4 p-md-2`}>
           <div className={`row ${!props.question && 'd-none'}`}>
             <div
               className={`col-md-1 gx-0 ${
@@ -40,7 +41,7 @@ const SCQ: React.FC<Props> = (props: Props) => {
               </div>
             </div>
             <div
-              className={`col-md-11 ${
+              className={`col-md-11 mb-2 ${
                 MCQStyles.question
               } d-flex align-items-center ${
                 !props.subquestionNumber && 'pl-lg-5 pl-4'

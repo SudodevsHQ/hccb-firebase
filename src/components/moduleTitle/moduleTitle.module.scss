@@ -4,8 +4,6 @@
     font-family: Rubik;
     font-style: normal;
     font-weight: bold;
-    font-size: 2rem;
-    line-height: 2rem;
     color: $descriptionTextColor;
   }
   
@@ -15,4 +13,11 @@
     font-weight: bold;
     color: $headerColor;
   }
+
+
+@media only screen and (max-width: 576px) {
+  .title {
+    text-align: center;
+  }
+}
   

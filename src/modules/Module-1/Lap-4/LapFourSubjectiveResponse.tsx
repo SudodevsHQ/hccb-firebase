@@ -14,7 +14,7 @@ const LapFour: React.FC = () => {
       nextPath="/module/1/lap/4/result">
       <textarea
         key={'1'}
-        className="w-100 h-100 form-control mb-4"
+        className="w-100 h-100 form-control mb-md-4"
         rows={8}
         placeholder=" &nbsp; Describe more..."
       />
