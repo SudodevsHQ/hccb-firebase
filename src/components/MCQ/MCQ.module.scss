@@ -85,6 +85,7 @@
   overflow-y: auto;
   display: flex;
   flex-wrap: wrap;
+  flex-grow: 1;
   max-height: 18rem;
 }
 
@@ -96,7 +97,8 @@
     font-size: 0.8rem;
   }
   .optionsWrapper {
-    height: 100%;
+    flex-grow: 1;
+    height: 70%;
     max-height: 50vh;
     .option {
       min-height: auto;
@@ -120,6 +122,12 @@
   .subquestionNumber {
     font-size: 1rem;
     border: 1px solid $secondaryPurple;
-    // margin: 0 0.5rem;
+    display: none;
+  }
+}
+
+@media screen and (min-width:576px) and (max-width:1400px){
+  .description p {
+    line-height: 1.5;
   }
 }

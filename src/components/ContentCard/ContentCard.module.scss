@@ -11,3 +11,9 @@
     color: $descriptionTextColor;
   }
 }
+
+@media only screen and (max-width: 576px) {
+  .card {
+    height: 105%;
+  }
+}

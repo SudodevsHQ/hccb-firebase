@@ -7,7 +7,6 @@
   color: $descriptionTextColor;
   display: flex;
   flex-direction: column;
-  // flex-grow: 1;
   justify-content: center;
   height: 100%;
 }
@@ -21,15 +20,20 @@
   color: $headerColor;
 }
 
+.contentWrapper {
+  height: 100%;
+}
+
 @media only screen and (max-width: 576px) {
   .title {
     text-align: center;
     line-height: normal;
   }
 
-  .textWrapper {
-    line-height: normal;
-    font-size: 1.2rem;
+
+  .contentWrapper {
+    line-height: 1.5;
+    font-size: 1rem;
     overflow-y: auto;
     border: 1px solid #4a4b5713;
     padding: 0.5rem;

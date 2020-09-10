@@ -6,9 +6,8 @@ body {
   font-family: 'Rubik', sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  overflow-x: hidden;
 }
-
-
 
 .Toastify__toast {
   background-color: $headerColor;
@@ -41,5 +40,13 @@ p {
 
   .progress-container svg {
     font-size: 1rem !important;
+  }
+}
+
+
+@media screen and (min-width:576px) and (max-width:1400px){
+  p {
+    font-size: 90%;
+    line-height: normal;
   }
 }

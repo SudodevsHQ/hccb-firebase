@@ -58,7 +58,7 @@ const MCQ: React.FC<Props> = ({
           <div
             className={`row px-2 flex-grow-0 ${!props.question && 'd-none'}`}>
             <div
-              className={`col-md-1 d-none d-md-block gx-0 ${
+              className={`col-md-1 gx-0 ${
                 !props.subquestionNumber && 'd-none'
               }`}>
               <div
@@ -67,16 +67,16 @@ const MCQ: React.FC<Props> = ({
               </div>
             </div>
             <div
-              className={`col-md-11 pt-2 pt-sm-0 ${
+              className={`col-md-11  pt-2 pt-sm-0 ${
                 styles.question
               } d-flex align-items-center ${
-                !props.subquestionNumber && 'pl-lg-5 pl-4'
+                !props.subquestionNumber && 'pl-lg-5'
               }`}>
               {props.question}
             </div>
           </div>
           <div
-            className={`row flex-grow-0 justify-content-center px-sm-4 px-2 py-2 ${styles.optionsWrapper}`}>
+            className={`row justify-content-center px-sm-4 px-2 py-2 ${styles.optionsWrapper}`}>
             {props.options.map((option, index) => (
               <div
                 key={index}
