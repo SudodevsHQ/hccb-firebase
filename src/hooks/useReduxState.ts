@@ -38,6 +38,3 @@ export const useReduxState = (
 
   return [selectedOptions, populateReduxAndSetState];
 };
-
-//take array of selected options
-//dispatch relevant action with relevannt paramns

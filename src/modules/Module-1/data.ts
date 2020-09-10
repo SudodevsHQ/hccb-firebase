@@ -26,36 +26,69 @@ export const lapOnedata = {
 
 export const moduleOneResultData = {
   lapOne: (saving: number): string[] => {
-    if (saving >= 2000 && saving < 5000) {
+    if (saving < 5000) {
       return ['Highly Enthusatic', 'Short term thinker'];
     } else if (saving >= 5000 && saving < 10000) {
       return ['Accountable and Responsible'];
     } else return ['Long term thinker'];
   },
-  lapTwo: {
-    1: {
-      2: ['Believes in Coaching', 'Good Team Mix'],
-      3: [
-        'Inclusive',
-        'Collaborative',
-        'Empathetic',
-        'Believe in Efficient Team',
-        'People Oriented',
-      ],
-      4: ['Organized'],
-    },
-    2: {
-      3: ['Inclusive', 'Collaborative', 'Innovative Solution', 'Driven'],
-      4: ['Training New Talent'],
-    },
-    3: ['Disciplined Team'],
+  lapTwo: (choices: number[]): string[] => {
+    switch (choices[0]) {
+      case 0: {
+        switch (choices[1]) {
+          case 1:
+            return ['Believes in Coaching', 'Good Team Mix'];
+          case 2:
+            return [
+              'Inclusive',
+              'Collaborative',
+              'Empathetic',
+              'Believe in Efficient Team',
+              'People Oriented',
+            ];
+          case 3:
+            return ['Organized'];
+          default:
+            return [''];
+        }
+      }
+
+      case 1:
+        switch (choices[1]) {
+          case 2:
+            return [
+              'Inclusive',
+              'Collaborative',
+              'Innovative Solution',
+              'Driven',
+            ];
+          case 3:
+            return ['Training New Talent'];
+          default:
+            return [''];
+        }
+      case 2:
+        return ['Disciplined Team'];
+
+      default:
+        return [''];
+    }
   },
-  lapThree: {
-    1: 'Authoritative Style (Get excited about change, and let your team see your enthusiasm)',
-    2: 'Coaching Leader building long-term skills, lot of direction and feedback to make appropriate moves.',
-    3: 'Affiliative style (highly focused on emotion )',
-    4: 'Democratic leadership style, Leaders using this leadership style actively seek input from their teams, and they rely more on listening than directing.',
-    5: 'The Pacesetting leadership style focuses on performance and meeting goals.',
+  lapThree: (choice: number): string => {
+    switch (choice) {
+      case 1:
+        return 'Authoritative Style (Get excited about change, and let your team see your enthusiasm)';
+      case 2:
+        return 'Coaching Leader building long-term skills, lot of direction and feedback to make appropriate moves.';
+      case 3:
+        return 'Affiliative style (highly focused on emotion )';
+      case 4:
+        return 'Democratic leadership style, Leaders using this leadership style actively seek input from their teams, and they rely more on listening than directing.';
+      case 5:
+        return 'The Pacesetting leadership style focuses on performance and meeting goals.';
+      default:
+        return '';
+    }
   },
   lapFour: {
     1: {
@@ -69,6 +102,7 @@ export const moduleOneResultData = {
     },
     3: ['Selling and Coaching'],
   },
+
   lapFive: [
     { id: 1, content: 'Planning & Preparation' },
     { id: 2, content: 'Approach – Opening the call' },
