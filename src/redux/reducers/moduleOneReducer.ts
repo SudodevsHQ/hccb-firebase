@@ -1,6 +1,5 @@
 import { ModuleOneState } from '../../interfaces/moduleOneState';
 import {
-  moduleOneActionTypes,
   SingleChoiceAction,
   SetLapTwoChoices,
   SetLapFiveOrder,
@@ -8,6 +7,7 @@ import {
   SetLapOneChoiceNum,
   SetLapOneChoiceBool,
 } from '../../interfaces/moduleOneAction.types';
+import { AnyAction } from 'redux';
 
 const moduleOneDefaultState: ModuleOneState = {
   lapOne: {
@@ -38,7 +38,7 @@ const moduleOneDefaultState: ModuleOneState = {
 
 const moduleOneReducer = (
   state = moduleOneDefaultState,
-  action: moduleOneActionTypes,
+  action: AnyAction,
 ): ModuleOneState => {
   switch (action.type) {
     case 'SET_LAPONE_CHOICE_NUM': {
