@@ -41,3 +41,17 @@
 .dndInfo {
   color: rgba(124, 87, 246, 0.5);
 }
+
+
+@media only screen and (max-width: 576px) {
+
+  .item {
+    padding: 0.5rem 0;
+    font-size: 0.875rem;
+  }
+
+  .index {
+    margin-bottom: 0.5rem;
+  }
+}
+
