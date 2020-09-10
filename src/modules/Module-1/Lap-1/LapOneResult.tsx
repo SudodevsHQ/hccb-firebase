@@ -1,20 +1,17 @@
 import React from 'react';
 import Result from '../../../components/result/result';
-import { useSelector } from 'react-redux';
-import { ReduxStore } from '../../../interfaces/reduxStore';
+import { useCalculateLapOneAmount } from '../calculateLapOneAmount';
 import { moduleOneResultData } from '../data';
 
 const LapOneResult: React.FC = () => {
-  const savings = useSelector(
-    (state: ReduxStore) => state.moduleOne.lapOne.amount,
-  );
-
+  const savings = useCalculateLapOneAmount();
+  const qualities = moduleOneResultData.lapOne(savings);
   return (
     <Result
       lapNumber={1}
       title={'Budget Management'}
-      qualities={moduleOneResultData.lapOne(savings)}
-      remark="You saved ₹6000"
+      qualities={qualities}
+      remark={`You saved ₹${savings}`}
       nextPath="/module/1/lap/2"
     />
   );
