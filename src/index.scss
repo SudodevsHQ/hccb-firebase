@@ -25,6 +25,10 @@ body {
   width: 0.3rem;
 }
 
+* {
+  overflow-x: hidden;
+}
+
 p {
   margin-bottom: 0.25rem;
 }
