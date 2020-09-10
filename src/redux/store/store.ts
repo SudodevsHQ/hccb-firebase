@@ -1,6 +1,9 @@
 /* eslint-disable  @typescript-eslint/no-explicit-any */
-import moduleOneReducer from '../reducers/moduleOneReducer';
 import { combineReducers, createStore } from 'redux';
+import { persistStore, persistReducer } from 'redux-persist';
+import storage from 'redux-persist/lib/storage'; // defaults to localStorage for web
+
+import moduleOneReducer from '../reducers/moduleOneReducer';
 import miscReducer from '../reducers/miscReducer';
 
 const rootReducer = combineReducers({
@@ -8,14 +11,23 @@ const rootReducer = combineReducers({
   misc: miscReducer,
 });
 
+const persistConfig = {
+  key: 'root',
+  storage,
+};
+
+const persistedReducer = persistReducer(persistConfig, rootReducer);
+
 // TODO: Remove eslint disable
 
 //eslint-disable-next-line
 export default () => {
   const store = createStore(
-    rootReducer,
+    persistedReducer,
     (window as any).__REDUX_DEVTOOLS_EXTENSION__ &&
       (window as any).__REDUX_DEVTOOLS_EXTENSION__(),
   );
-  return store;
+  const persistor = persistStore(store);
+
+  return { store, persistor };
 };
