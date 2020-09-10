@@ -1,7 +1,10 @@
 import React from 'react';
 import MCQ from '../../../components/MCQ/MCQ';
+import { useCalculateLapOneAmount } from '../calculateLapOneAmount';
 
 const LapOneB: React.FC = () => {
+  const savingsAfterLapOneA = useCalculateLapOneAmount();
+
   return (
     <MCQ
       lapNumber={1}
@@ -16,9 +19,9 @@ const LapOneB: React.FC = () => {
       }
       question={
         <p>
-          Good Job ! Now you have (20,000 – x ) INR left for purchasing the
-          marketing materials. The marketing materials include stall banners,
-          new product promotion Ads, walls stickers (4” * 4”) etc.
+          Good Job ! Now you have {savingsAfterLapOneA} INR left for purchasing
+          the marketing materials. The marketing materials include stall
+          banners, new product promotion Ads, walls stickers (4” * 4”) etc.
         </p>
       }
       subquestionNumber={'B'}

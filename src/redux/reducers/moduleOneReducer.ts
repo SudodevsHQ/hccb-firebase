@@ -41,9 +41,6 @@ const moduleOneReducer = (
 ): ModuleOneState => {
   switch (action.type) {
     case 'SET_LAPONE_CHOICE_NUM': {
-      const amount =
-        state.lapOne.amount -
-        state.lapOne.amount * 0.01 * (action as SetLapOneChoiceNum).choice;
       return {
         ...state,
         lapOne: {
@@ -51,27 +48,18 @@ const moduleOneReducer = (
           [`choice${
             (action as SetLapOneChoiceNum).option
           }`]: (action as SetLapOneChoiceNum).choice,
-          amount,
         },
       };
     }
 
     case 'SET_LAPONE_CHOICE_BOOL': {
-      let amount = state.lapOne.amount;
-
-      if ((action as SetLapOneChoiceBool).choice) {
-        const deduction =
-          (action as SetLapOneChoiceBool).option === 'C' ? 1000 : 3000;
-        amount = state.lapOne.amount - deduction;
-      }
       return {
         ...state,
         lapOne: {
           ...state.lapOne,
           [`choice${
-            (action as SetLapOneChoiceNum).option
-          }`]: (action as SetLapOneChoiceNum).choice,
-          amount,
+            (action as SetLapOneChoiceBool).option
+          }`]: (action as SetLapOneChoiceBool).choice,
         },
       };
     }
