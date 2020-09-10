@@ -1,10 +1,25 @@
 @import '../../colors.scss';
 
 .layout {
-  height: 99vh;
+  height: 100vh;
   background-color: $backgroundGrey;
 }
 
 .companion-image {
   height: 24rem;
+}
+
+
+
+@media only screen and (max-width: 576px) {
+  .layout {
+    margin-top: 2rem;
+  }
+}
+
+
+@media only screen and (max-width: 1400px) {
+ .companion-image {
+  height: 12rem;
+ }
 }

@@ -4,11 +4,7 @@
   color: $primaryPurple;
   max-height: 25rem;
   display: flex;
-  &::-webkit-scrollbar-thumb {
-    background-color: $primaryPurple;
-    border-radius: 30px;
-  }
-  &::-webkit-scrollbar {
-    width: 0.3rem;
-  }
+
 }
+
+

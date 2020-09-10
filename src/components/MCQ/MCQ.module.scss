@@ -6,7 +6,7 @@
   font-weight: normal;
   line-height: 1.75;
   color: $descriptionTextColor;
-  margin-bottom: 2rem;
+  margin-bottom: 1rem;
 }
 
 .subquestionNumber {
@@ -25,7 +25,7 @@
   font-style: normal;
   font-weight: 500;
   font-size: 1rem;
-  line-height: 28px;
+  line-height: 1.75rem;
   color: $primaryPurple;
   p {
     color: $primaryPurple;
@@ -35,6 +35,10 @@
 .optionsBox {
   background: $secondaryPurple;
   border-radius: 30px;
+
+  div {
+    flex-basis: auto;
+  }
 }
 
 .option {
@@ -78,15 +82,55 @@
 }
 
 .optionsWrapper {
-  max-height: 18rem;
   overflow-y: auto;
   display: flex;
   flex-wrap: wrap;
-  &::-webkit-scrollbar-thumb {
-    background-color: $primaryPurple;
-    border-radius: 30px;
+  flex-grow: 1;
+  max-height: 18rem;
+}
+
+@media only screen and (max-width: 576px) {
+  .description {
+    line-height: normal;
+    margin-bottom: 0.75rem;
+    text-align: center;
+    font-size: 0.8rem;
   }
-  &::-webkit-scrollbar {
-    width: 0.3rem;
+  .optionsWrapper {
+    flex-grow: 1;
+    height: 70%;
+    max-height: 50vh;
+    .option {
+      min-height: auto;
+      margin: 5px 0;
+      padding: 0.5rem;
+      text-align: center;
+      font-size: 1rem;
+      p {
+        font-size: 0.75rem;
+        line-height: normal;
+        margin-bottom: 0;
+      }
+    }
+  }
+  .question {
+    line-height: normal;
+    --bs-gutter-x: 0;
+    padding: 0 0.5rem;
+  }
+
+  .subquestionNumber {
+    font-size: 1rem;
+    border: 1px solid $secondaryPurple;
+    display: none;
+  }
+}
+
+@media screen and (min-width:576px) and (max-width:1400px){
+  .description p {
+    line-height: 1.5;
+  }
+  .subquestionNumber {
+    display: none;
   }
 }

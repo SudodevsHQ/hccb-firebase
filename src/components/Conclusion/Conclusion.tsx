@@ -21,7 +21,7 @@ const Conclusion: React.FC<Props> = (props: Props) => {
 
   return (
     <div
-      className={`${resultStyles.result} p-5 d-flex text-center justify-content-center`}>
+      className={`${resultStyles.result} p-md-5 p-4 d-flex text-center justify-content-center`}>
       <Confetti width={width} height={height} />
       <HeroCard>
         <h1 className={`${styles.conclusionTitle}`}>{props.title}</h1>
@@ -29,11 +29,12 @@ const Conclusion: React.FC<Props> = (props: Props) => {
         <img
           src={`/static/img/conclusion.svg`}
           alt="result-illustration"
-          className="my-4"
+          className="my-lg-4"
         />
 
         <div className={`${styles.description}`}>{props.description}</div>
-        <div className={`d-flex justify-content-center my-2 ${styles.buttons}`}>
+        <div
+          className={`d-flex justify-content-center my-md-2 flex-wrap ${styles.buttons}`}>
           <PrimaryButton attempted={true} path={props.nextPath}>
             See Results for all Laps
           </PrimaryButton>

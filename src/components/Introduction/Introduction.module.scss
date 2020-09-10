@@ -7,15 +7,38 @@
   color: $descriptionTextColor;
   display: flex;
   flex-direction: column;
-  flex-grow: 1;
   justify-content: center;
+  height: 100%;
 }
 
 .title {
   font-family: Rubik;
   font-style: normal;
   font-weight: bold;
-  font-size: 2rem;
+  // font-size: 2rem;
   line-height: 38px;
   color: $headerColor;
+}
+
+.contentWrapper {
+  max-height: 100%;
+}
+
+@media only screen and (max-width: 576px) {
+  .title {
+    text-align: center;
+    line-height: normal;
+  }
+
+
+  .contentWrapper {
+    line-height: 1.5;
+    font-size: 1rem;
+    overflow-y: auto;
+    border: 1px solid #4a4b5713;
+    padding: 0.5rem;
+    flex-grow: 1;
+  }
+
+
 }
