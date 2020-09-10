@@ -13,12 +13,14 @@ const IntroductionOne: React.FunctionComponent = () => {
         analyse the decision-making capability of the sales-head and how well
         the scenario management is being done.
       </p>
+      <br />
       <p>
         At the end of each Lap, analysis will be provided for self-reflection
         and feedback. There is no specific sales strategy for resolving the
         laps, it’s the general acumen and you as a accountable position holding
         resolving the laps.
       </p>
+      <br />
       <p>
         Popz-Soda Pvt. Ltd. Has launched a new product “Aloe-Pop” the new
         immunity booster along with freshness of juice. This product has been
@@ -27,6 +29,7 @@ const IntroductionOne: React.FunctionComponent = () => {
         the responsibility of co-ordinating with all the departments and
         planning for maximizing the sales in your territory of Barmadanagar.
       </p>
+      <br />
       <p>
         The sales target for first month is 5000 Cases, with one case having 24
         Aloe-pops. The promo discounting and commercial budget needs to be

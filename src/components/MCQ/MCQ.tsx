@@ -56,7 +56,9 @@ const MCQ: React.FC<Props> = ({
             props.lapNumber !== 1 ? 'p-lg-4' : 'p-lg-5'
           } px-3 p-md-2`}>
           <div
-            className={`row px-2 flex-grow-0 ${!props.question && 'd-none'}`}>
+            className={`row px-2 gx-0 pl-md-4 flex-grow-0 ${
+              !props.question && 'd-none'
+            }`}>
             <div
               className={`col-md-1 gx-0 ${
                 !props.subquestionNumber && 'd-none'
