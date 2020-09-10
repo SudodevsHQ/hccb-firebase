@@ -51,7 +51,7 @@ const ReorderableList: React.FC = () => {
 
   return (
     <div className={`${styles.droppableWrapper} row px-0`}>
-      <div className="indexes col-lg-1 col-1 gx-0 d-flex flex-column justify-content-around">
+      <div className="indexes col-lg-1 col-1 gx-1 gx-lg-2 d-flex flex-column justify-content-around">
         <div className={`${styles.index}`}>1</div>
         <div className={`${styles.index}`}>2</div>
         <div className={`${styles.index}`}>3</div>
@@ -89,8 +89,9 @@ const ReorderableList: React.FC = () => {
           </Droppable>
         </DragDropContext>
       </div>
-      <div className={`col-lg-3 d-none d-lg-block ${styles.dndInfo} my-auto`}>
-        Drag and reorder the steps
+      <div
+        className={`col-lg-3 col text-center d-none d-md-block ${styles.dndInfo} my-auto`}>
+        Drag and drop the steps into correct order
         <Icon
           icon={arrowUp}
           style={{ color: '#7C57F6', fontSize: '32px' }}
