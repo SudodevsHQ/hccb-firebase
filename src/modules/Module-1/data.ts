@@ -5,7 +5,8 @@ import {
   setLapFourChoice,
   setLapFourSubjectiveResponse,
   setLapFiveOrder,
-  setLapSixChoice,
+  setLapSixChoiceA,
+  setLapSixChoiceB,
   setLapOneChoiceNumA,
   setLapOneChoiceNumB,
   setLapOneChoiceBoolC,
@@ -76,15 +77,15 @@ export const moduleOneResultData = {
   },
   lapThree: (choice: number): string => {
     switch (choice) {
-      case 1:
+      case 0:
         return 'Authoritative Style (Get excited about change, and let your team see your enthusiasm)';
-      case 2:
+      case 1:
         return 'Coaching Leader building long-term skills, lot of direction and feedback to make appropriate moves.';
-      case 3:
+      case 2:
         return 'Affiliative style (highly focused on emotion )';
-      case 4:
+      case 3:
         return 'Democratic leadership style, Leaders using this leadership style actively seek input from their teams, and they rely more on listening than directing.';
-      case 5:
+      case 4:
         return 'The Pacesetting leadership style focuses on performance and meeting goals.';
       default:
         return '';
@@ -141,7 +142,8 @@ export const actionBuilderMap = {
       order: setLapFiveOrder,
     },
     lapSix: {
-      choice: setLapSixChoice,
+      choiceA: setLapSixChoiceA,
+      choiceB: setLapSixChoiceB,
     },
   },
 };

@@ -5,6 +5,7 @@ const LapFour: React.FC = () => {
   return (
     <MCQ
       title="What kind of style would you like to adapt?"
+      description="With the chosen Manpower in Lap 2, what kind of leadership style would you like to adapt more?"
       lapNumber={4}
       image="man"
       nextPath="/module/1/lap/4/why"

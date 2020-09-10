@@ -5,17 +5,18 @@ const LapFour: React.FC = () => {
   return (
     <SCQ
       title="What kind of style would you like to adapt?"
+      description="With the chosen Manpower in Lap 2, what kind of leadership style would you like to adapt more? "
       question={
-        <p>You chose “Participating and Supporting” Why do you think So?</p>
+        <p>[OPTIONAL] &nbsp; Why did you select this leadership style?</p>
       }
       lapNumber={4}
       image="man"
-      nextPath="/module/1/lap/5">
+      nextPath="/module/1/lap/4/result">
       <textarea
         key={'1'}
         className="w-100 h-100 form-control mb-4"
-        rows={10}
-        placeholder="Write about why you chose this option..."
+        rows={8}
+        placeholder=" &nbsp; Describe more..."
       />
     </SCQ>
   );

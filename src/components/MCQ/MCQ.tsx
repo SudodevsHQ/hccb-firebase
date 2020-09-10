@@ -19,12 +19,21 @@ interface Props {
   numberOfCorrectOptions?: number;
   nextPath: string;
   optionsPerRow: number;
-  image: 'graph' | 'dashboard' | 'man' | 'puzzle';
+  image:
+    | 'graph'
+    | 'quiz'
+    | 'dashboard'
+    | 'man'
+    | 'analysis'
+    | 'puzzle'
+    | 'presentation';
   stateSelector: (state: ReduxStore) => null | number | number[] | boolean;
+  error?: string;
 }
 
 const MCQ: React.FC<Props> = ({
   numberOfCorrectOptions = 1,
+  error = 'Please select an option to continue',
   ...props
 }: Props) => {
   const [selectedOptions, setSelectedOptions] = useReduxState(
@@ -32,6 +41,7 @@ const MCQ: React.FC<Props> = ({
     props.stateSelector,
     numberOfCorrectOptions,
   );
+
   return (
     <Layout image={props.image}>
       <div className="container px-xl-5 px-md-2">
@@ -78,6 +88,7 @@ const MCQ: React.FC<Props> = ({
         </div>
         <div className="">
           <PrimaryButton
+            error={error}
             attempted={selectedOptions.length === numberOfCorrectOptions}
             path={props.nextPath}>
             Next

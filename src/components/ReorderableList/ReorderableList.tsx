@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import {
   DragDropContext,
   Droppable,
@@ -10,18 +10,10 @@ import styles from './ReorderableList.module.scss';
 import { Icon } from '@iconify/react';
 import arrowDown from '@iconify/icons-bx/bx-up-arrow';
 import arrowUp from '@iconify/icons-bx/bx-down-arrow';
-
-const executionStepList = [
-  { id: 1, content: 'Planning & Preparation' },
-  { id: 2, content: 'Approach – Opening the call' },
-  { id: 3, content: 'Sell and Secure' },
-  { id: 4, content: 'Increase (NPD & Range Selling)' },
-  { id: 5, content: 'Stock Check and Store Check' },
-  { id: 6, content: 'Approach – Opening the call' },
-  { id: 7, content: 'Outlet Merchandising' },
-];
-
-// const correctStepOrder = [1, 3, 5, 2, 4, 7, 6];
+import { moduleOneResultData } from '../../modules/Module-1/data';
+import { shuffleArray } from '../../util/arrayUtils';
+import { useDispatch } from 'react-redux';
+import { setLapFiveOrder } from '../../redux/actions/moduleOneActions';
 
 const reorder = (
   list: Array<{ id: number; content: string }>,
@@ -30,12 +22,23 @@ const reorder = (
 ): Array<{ id: number; content: string }> => {
   const [removed] = list.splice(startIndex, 1);
   list.splice(endIndex, 0, removed);
-
   return list;
 };
 
 const ReorderableList: React.FC = () => {
+  const executionStepList = moduleOneResultData.lapFive;
   const [steps, setSteps] = useState(executionStepList);
+  const dispatch = useDispatch();
+
+  useEffect(() => {
+    shuffleArray(steps);
+  }, [steps]);
+
+  useEffect(() => {
+    // Set order on mount after shuffle
+    dispatch(setLapFiveOrder(steps.map((item) => item.id)));
+  }, [dispatch, steps]);
+
   const handleDragEnd = (result: DropResult) => {
     if (!result.destination) {
       return;
@@ -43,7 +46,7 @@ const ReorderableList: React.FC = () => {
     const items = reorder(steps, result.source.index, result.destination.index);
     setSteps(items);
     const postDropIndexes = steps.map((item) => item.id);
-    console.log(postDropIndexes);
+    dispatch(setLapFiveOrder(postDropIndexes));
   };
 
   return (

@@ -16,7 +16,9 @@ interface Props {
   children: React.ReactNode;
   subquestionNumber?: string;
   nextPath: string;
-  image: 'graph' | 'dashboard' | 'man' | 'puzzle';
+  image: 'graph' | 'dashboard' | 'man' | 'puzzle' | 'presentation';
+  validation?: boolean;
+  error?: string;
 }
 
 const SCQ: React.FC<Props> = (props: Props) => {
@@ -52,7 +54,11 @@ const SCQ: React.FC<Props> = (props: Props) => {
           </div>
         </div>
         <div className="">
-          <PrimaryButton attempted={true} path={props.nextPath}>
+          <PrimaryButton
+            error={props.error}
+            attempted={true}
+            path={props.nextPath}
+            validation={props.validation}>
             Next
           </PrimaryButton>
         </div>

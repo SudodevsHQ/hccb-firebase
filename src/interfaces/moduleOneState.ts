@@ -20,6 +20,7 @@ export interface ModuleOneState {
     order: number[];
   };
   lapSix: {
-    choice: null | number;
+    choiceA: null | number;
+    choiceB: null | number;
   };
 }

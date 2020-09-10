@@ -80,9 +80,18 @@ export const setLapFiveOrder = (order: number[]): moduleOneActionTypes => {
   };
 };
 
-export const setLapSixChoice = (choice: number): moduleOneActionTypes => {
+export const setLapSixChoiceA = (choice: number): moduleOneActionTypes => {
   return {
     type: 'SET_LAPSIX_CHOICE',
+    option: 'A',
+    choice,
+  };
+};
+
+export const setLapSixChoiceB = (choice: number): moduleOneActionTypes => {
+  return {
+    type: 'SET_LAPSIX_CHOICE',
+    option: 'B',
     choice,
   };
 };

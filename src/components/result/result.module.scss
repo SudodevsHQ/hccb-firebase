@@ -3,17 +3,25 @@
 }
 
 .qualities {
-  max-width: 30rem;
+  max-width: 35rem;
 }
 
-.quality {
+.quality,
+.suggestion {
   font-family: Rubik;
   font-style: normal;
   font-weight: bold;
   font-size: 1.115rem;
   line-height: 1.5rem;
-  text-align: left;
+  // text-align: left;
+}
+
+.quality {
   color: #6fd05f;
+}
+
+.suggestion {
+  color: #ffc652;
 }
 
 .remark,
@@ -27,4 +35,18 @@
 
 .description {
   font-size: 18px;
+}
+
+.image {
+  animation: fadeup 0.8s ease-in;
+}
+
+@keyframes fadeup {
+  0% {
+    transform: scale(0.5)
+  }
+
+  100% {
+    transform: scale(1);
+  }
 }

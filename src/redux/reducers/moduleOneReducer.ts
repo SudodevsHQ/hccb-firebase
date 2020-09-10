@@ -31,7 +31,8 @@ const moduleOneDefaultState: ModuleOneState = {
     order: [],
   },
   lapSix: {
-    choice: null,
+    choiceA: null,
+    choiceB: null,
   },
 };
 
@@ -106,7 +107,10 @@ const moduleOneReducer = (
       return {
         ...state,
         lapSix: {
-          choice: (action as SingleChoiceAction).choice,
+          ...state.lapSix,
+          [`choice${
+            (action as SetLapOneChoiceNum).option
+          }`]: (action as SingleChoiceAction).choice,
         },
       };
 
