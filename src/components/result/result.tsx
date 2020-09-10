@@ -33,7 +33,7 @@ const Result: React.FC<Props> = ({ image = 'result', ...props }: Props) => {
 
   return (
     <div
-      className={`${styles.result} p-5 d-flex text-center justify-content-center`}>
+      className={`${styles.result} p-md-5 p-4 d-flex text-center justify-content-center`}>
       <Confetti
         width={width}
         height={height}
@@ -51,7 +51,7 @@ const Result: React.FC<Props> = ({ image = 'result', ...props }: Props) => {
 
         <div className={styles.description}>{props.description}</div>
 
-        <div className={`mx-auto text-center my-2 ${styles.qualities}`}>
+        <div className={`mx-auto text-center my-sm-2 ${styles.qualities}`}>
           {props.qualities?.map((quality) => {
             return (
               <div key={quality} className={`${styles.quality}`}>

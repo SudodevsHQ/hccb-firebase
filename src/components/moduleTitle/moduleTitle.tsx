@@ -8,9 +8,9 @@ interface Props {
 
 const ModuleTitle: React.FC<Props> = (props: Props) => {
   return (
-    <h1 className={styles.title}>
+    <h2 className={styles.title}>
       <span className={styles.lap}>Lap {props.lapNumber}:</span> {props.title}
-    </h1>
+    </h2>
   );
 };
 

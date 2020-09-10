@@ -27,48 +27,97 @@ export const lapOnedata = {
 
 export const moduleOneResultData = {
   lapOne: (saving: number): string[] => {
-    if (saving >= 2000 && saving < 5000) {
+    if (saving < 5000) {
       return ['Highly Enthusatic', 'Short term thinker'];
     } else if (saving >= 5000 && saving < 10000) {
       return ['Accountable and Responsible'];
     } else return ['Long term thinker'];
   },
-  lapTwo: {
-    1: {
-      2: ['Believes in Coaching', 'Good Team Mix'],
-      3: [
-        'Inclusive',
-        'Collaborative',
-        'Empathetic',
-        'Believe in Efficient Team',
-        'People Oriented',
-      ],
-      4: ['Organized'],
-    },
-    2: {
-      3: ['Inclusive', 'Collaborative', 'Innovative Solution', 'Driven'],
-      4: ['Training New Talent'],
-    },
-    3: ['Disciplined Team'],
+  lapTwo: (choices: number[]): string[] => {
+    switch (choices[0]) {
+      case 0: {
+        switch (choices[1]) {
+          case 1:
+            return ['Believes in Coaching', 'Good Team Mix'];
+          case 2:
+            return [
+              'Inclusive',
+              'Collaborative',
+              'Empathetic',
+              'Believe in Efficient Team',
+              'People Oriented',
+            ];
+          case 3:
+            return ['Organized'];
+          default:
+            return [''];
+        }
+      }
+      case 1:
+        switch (choices[1]) {
+          case 2:
+            return [
+              'Inclusive',
+              'Collaborative',
+              'Innovative Solution',
+              'Driven',
+            ];
+          case 3:
+            return ['Training New Talent'];
+          default:
+            return [''];
+        }
+      case 2:
+        return ['Disciplined Team'];
+
+      default:
+        return [''];
+    }
   },
-  lapThree: {
-    1: 'Authoritative Style (Get excited about change, and let your team see your enthusiasm)',
-    2: 'Coaching Leader building long-term skills, lot of direction and feedback to make appropriate moves.',
-    3: 'Affiliative style (highly focused on emotion )',
-    4: 'Democratic leadership style, Leaders using this leadership style actively seek input from their teams, and they rely more on listening than directing.',
-    5: 'The Pacesetting leadership style focuses on performance and meeting goals.',
+  lapThree: (choice: number): string => {
+    switch (choice) {
+      case 0:
+        return 'Authoritative Style (Get excited about change, and let your team see your enthusiasm)';
+      case 1:
+        return 'Coaching Leader building long-term skills, lot of direction and feedback to make appropriate moves.';
+      case 2:
+        return 'Affiliative style (highly focused on emotion )';
+      case 3:
+        return 'Democratic leadership style, Leaders using this leadership style actively seek input from their teams, and they rely more on listening than directing.';
+      case 4:
+        return 'The Pacesetting leadership style focuses on performance and meeting goals.';
+      default:
+        return '';
+    }
   },
-  lapFour: {
-    1: {
-      2: ['Participating and Supporting', 'Selling and Coaching'],
-      3: ['Participating and Supporting'],
-      4: ['Delegating to the employees'],
-    },
-    2: {
-      3: ['Telling and Directing'],
-      4: ['Participating and Supporting', 'Selling and Coaching'],
-    },
-    3: ['Selling and Coaching'],
+  lapFour: (choices: number[]): string[] => {
+    switch (choices[0]) {
+      case 0: {
+        switch (choices[1]) {
+          case 1:
+            return ['Participating and Supporting', 'Selling and Coaching'];
+          case 2:
+            return ['Participating and Supporting'];
+          case 3:
+            return ['Delegating to the employees'];
+          default:
+            return [''];
+        }
+      }
+      case 1:
+        switch (choices[1]) {
+          case 2:
+            return ['Telling and Directing'];
+          case 3:
+            return ['Participating and Supporting', 'Selling and Coaching'];
+          default:
+            return [''];
+        }
+      case 2:
+        return ['Selling and Coaching'];
+      default:
+        return [''];
+    }
   },
   lapFive: [
     { id: 1, content: 'Planning & Preparation' },
@@ -79,9 +128,33 @@ export const moduleOneResultData = {
     { id: 6, content: 'Outlet Merchandising' },
     { id: 7, content: 'Notify and Close the call.' },
   ],
-  lapSix: {
-    1: 2,
-    2: 1,
+  lapSix: (subQuestion: string, choice: number): [string, boolean] => {
+    switch (subQuestion) {
+      case 'A':
+        if (choice === 0)
+          return [
+            'Ask Diagnostic Questions (Open Ended , Who When, how and Why)',
+            false,
+          ];
+        else
+          return [
+            'Try to receive full attention of the Retailer, get connected to them and GO SLOW.',
+            true,
+          ];
+      case 'B':
+        if (choice === 0)
+          return [
+            'Ask Diagnostic Questions (Open Ended , Who When, how and Why)',
+            true,
+          ];
+        else
+          return [
+            'Try to receive full attention of the Retailer, get connected to them and GO SLOW.',
+            false,
+          ];
+      default:
+        return ['', false];
+    }
   },
 };
 

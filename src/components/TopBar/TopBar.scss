@@ -6,7 +6,7 @@
   top: 0.75rem;
   .progress {
     width: 50rem;
-    max-width: 90%;
+    max-width: 80%;
   }
 
   .progress-bar {
@@ -18,5 +18,13 @@
     border-radius: 10px;
     margin: 0 0.5rem;
     font-size: 0.75rem;
+  }
+}
+
+
+@media only screen and (max-width: 576px) {
+  .progress-container {
+    top: 0.75rem;
+    padding: 0 1rem;
   }
 }
