@@ -53,7 +53,6 @@ export const moduleOneResultData = {
             return [''];
         }
       }
-
       case 1:
         switch (choices[1]) {
           case 2:
@@ -91,19 +90,35 @@ export const moduleOneResultData = {
         return '';
     }
   },
-  lapFour: {
-    1: {
-      2: ['Participating and Supporting', 'Selling and Coaching'],
-      3: ['Participating and Supporting'],
-      4: ['Delegating to the employees'],
-    },
-    2: {
-      3: ['Telling and Directing'],
-      4: ['Participating and Supporting', 'Selling and Coaching'],
-    },
-    3: ['Selling and Coaching'],
+  lapFour: (choices: number[]): string[] => {
+    switch (choices[0]) {
+      case 0: {
+        switch (choices[1]) {
+          case 1:
+            return ['Participating and Supporting', 'Selling and Coaching'];
+          case 2:
+            return ['Participating and Supporting'];
+          case 3:
+            return ['Delegating to the employees'];
+          default:
+            return [''];
+        }
+      }
+      case 1:
+        switch (choices[1]) {
+          case 2:
+            return ['Telling and Directing'];
+          case 3:
+            return ['Participating and Supporting', 'Selling and Coaching'];
+          default:
+            return [''];
+        }
+      case 2:
+        return ['Selling and Coaching'];
+      default:
+        return [''];
+    }
   },
-
   lapFive: [
     { id: 1, content: 'Planning & Preparation' },
     { id: 2, content: 'Approach – Opening the call' },
@@ -113,9 +128,33 @@ export const moduleOneResultData = {
     { id: 6, content: 'Outlet Merchandising' },
     { id: 7, content: 'Notify and Close the call.' },
   ],
-  lapSix: {
-    1: 2,
-    2: 1,
+  lapSix: (subQuestion: string, choice: number): [string, boolean] => {
+    switch (subQuestion) {
+      case 'A':
+        if (choice === 0)
+          return [
+            'Ask Diagnostic Questions (Open Ended , Who When, how and Why)',
+            false,
+          ];
+        else
+          return [
+            'Try to receive full attention of the Retailer, get connected to them and GO SLOW.',
+            true,
+          ];
+      case 'B':
+        if (choice === 0)
+          return [
+            'Ask Diagnostic Questions (Open Ended , Who When, how and Why)',
+            true,
+          ];
+        else
+          return [
+            'Try to receive full attention of the Retailer, get connected to them and GO SLOW.',
+            false,
+          ];
+      default:
+        return ['', false];
+    }
   },
 };
 
