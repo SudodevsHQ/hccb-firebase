@@ -21,7 +21,7 @@ const LapFive: React.FC = () => {
     <SCQ
       error={'Oops! Wrong order!'}
       title="Revisiting the fundamentals"
-      description="Put the steps into order"
+      description="Drag and drop the step into order"
       lapNumber={5}
       image="puzzle"
       nextPath="/module/1/lap/6"

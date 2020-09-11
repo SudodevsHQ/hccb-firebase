@@ -25,7 +25,7 @@ const Layout: React.FunctionComponent<Props> = (props: Props) => {
             className="companion-image"
           />
         </div>
-        <div className="col-xxl-8 col-lg-10 h-100 gx-0 flex-grow-1 overflow-hidden">
+        <div className="col-xxl-8 col-lg-10 flex-grow-1 h-100 gx-0">
           <ContentCard>{props.children}</ContentCard>
         </div>
       </div>

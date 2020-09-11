@@ -54,7 +54,7 @@ const MCQ: React.FC<Props> = ({
             styles.optionsBox
           } flex-grow-1 d-flex flex-column justify-content-center ${
             props.lapNumber !== 1 ? 'p-lg-4' : 'p-lg-5'
-          } px-3 p-md-2`}>
+          } px-3`}>
           <div
             className={`row px-2 gx-0 pl-md-4 flex-grow-0 ${
               !props.question && 'd-none'

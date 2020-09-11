@@ -7,6 +7,7 @@ import { useHistory } from 'react-router-dom';
 
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
+import useWindowDimensions from '../../hooks/useWindowDimensions';
 
 interface Props {
   path: string;
@@ -18,6 +19,7 @@ interface Props {
 
 const PrimaryButton: React.FC<Props> = ({ validation, ...props }: Props) => {
   const history = useHistory();
+  const { width } = useWindowDimensions();
 
   return (
     <div className="d-flex justify-content-center">
@@ -44,7 +46,9 @@ const PrimaryButton: React.FC<Props> = ({ validation, ...props }: Props) => {
         />
       </button>
       <ToastContainer
-        position="bottom-right"
+        position={
+          width !== undefined && width < 576 ? 'top-left' : 'bottom-right'
+        }
         autoClose={2000}
         hideProgressBar
         newestOnTop={false}
