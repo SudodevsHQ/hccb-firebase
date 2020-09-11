@@ -60,7 +60,7 @@ const ReorderableList: React.FC = () => {
         <div className={`${styles.index}`}>6</div>
         <div className={`${styles.index}`}>7</div>
       </div>
-      <div className="col-lg-8 col-11 gx-0 gx-md-1">
+      <div className="col-lg-8 col-11 gx-0 gx-md-1 px-1 px-md-3">
         <DragDropContext onDragEnd={handleDragEnd}>
           <Droppable droppableId="reorderableList">
             {(provided) => (

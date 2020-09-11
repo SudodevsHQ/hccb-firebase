@@ -86,7 +86,7 @@
   display: flex;
   flex-wrap: wrap;
   flex-grow: 1;
-  max-height: 18rem;
+  max-height: 40vh;
 }
 
 @media only screen and (max-width: 576px) {
@@ -133,4 +133,12 @@
   .subquestionNumber {
     display: none;
   }
+}
+
+
+@media only screen and (min-width: 2000px) {
+  .optionsWrapper{
+    max-height: 60vh;
+  }
+
 }
