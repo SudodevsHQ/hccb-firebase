@@ -1,5 +1,5 @@
 import React from 'react';
-import { MemoryRouter } from 'react-router-dom';
+import { BrowserRouter } from 'react-router-dom';
 import { AnimatedSwitch, AnimatedRoute } from 'react-router-transition';
 
 import 'bootstrap/dist/css/bootstrap.min.css';
@@ -30,7 +30,7 @@ import TopBar from './components/TopBar/TopBar';
 
 const App: React.FunctionComponent = () => {
   return (
-    <MemoryRouter>
+    <BrowserRouter>
       <TopBar />
       <AnimatedSwitch
         {...pageTransitions}
@@ -112,7 +112,7 @@ const App: React.FunctionComponent = () => {
           exact
         />
       </AnimatedSwitch>
-    </MemoryRouter>
+    </BrowserRouter>
   );
 };
 
