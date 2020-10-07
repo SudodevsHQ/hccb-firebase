@@ -11,7 +11,7 @@ import {
   setLapOneChoiceNumB,
   setLapOneChoiceBoolC,
   setLapOneChoiceBoolD,
-} from '../../redux/actions/moduleOneActions';
+} from '../../../redux/actions/moduleOneActions';
 
 export const lapOnedata = {
   moduleOne: {

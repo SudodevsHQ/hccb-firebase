@@ -2,7 +2,7 @@ import React from 'react';
 import Result from '../../../components/result/result';
 import { useSelector } from 'react-redux';
 import { ReduxStore } from '../../../interfaces/reduxStore';
-import { moduleOneResultData } from '../data';
+import { moduleOneResultData } from '../utils/data';
 
 const LapTwoResult: React.FC = () => {
   const choice = useSelector(

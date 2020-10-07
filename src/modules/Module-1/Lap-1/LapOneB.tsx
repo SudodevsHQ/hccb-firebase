@@ -1,6 +1,6 @@
 import React from 'react';
 import MCQ from '../../../components/MCQ/MCQ';
-import { useCalculateLapOneAmount } from '../calculateLapOneAmount';
+import { useCalculateLapOneAmount } from '../utils/calculateLapOneAmount';
 
 const LapOneB: React.FC = () => {
   const savingsAfterLapOneA = useCalculateLapOneAmount();

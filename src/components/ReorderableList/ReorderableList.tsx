@@ -10,7 +10,7 @@ import styles from './ReorderableList.module.scss';
 import { Icon } from '@iconify/react';
 import arrowDown from '@iconify/icons-bx/bx-up-arrow';
 import arrowUp from '@iconify/icons-bx/bx-down-arrow';
-import { moduleOneResultData } from '../../modules/Module-1/data';
+import { moduleOneResultData } from '../../modules/Module-1/utils/data';
 import { shuffleArray } from '../../util/arrayUtils';
 import { useDispatch } from 'react-redux';
 import { setLapFiveOrder } from '../../redux/actions/moduleOneActions';
