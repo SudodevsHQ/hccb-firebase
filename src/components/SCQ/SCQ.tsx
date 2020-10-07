@@ -7,6 +7,7 @@ import MCQStyles from '../MCQ/MCQ.module.scss';
 import styles from './SCQ.module.scss';
 import PrimaryButton from '../primaryButton/primaryButton';
 import ModuleTitle from '../moduleTitle/moduleTitle';
+import { Link } from 'react-router-dom';
 
 interface Props {
   lapNumber: number;
@@ -19,6 +20,7 @@ interface Props {
   image: 'graph' | 'dashboard' | 'man' | 'puzzle' | 'presentation';
   validation?: boolean;
   error?: string;
+  isSkippable?: boolean;
 }
 
 const SCQ: React.FC<Props> = (props: Props) => {
@@ -54,7 +56,7 @@ const SCQ: React.FC<Props> = (props: Props) => {
             {props.children}
           </div>
         </div>
-        <div className="">
+        <div className="d-flex justify-content-center align-items-center">
           <PrimaryButton
             error={props.error}
             attempted={true}
@@ -62,6 +64,13 @@ const SCQ: React.FC<Props> = (props: Props) => {
             validation={props.validation}>
             Next
           </PrimaryButton>
+          {props.isSkippable && (
+            <Link
+              className="mt-4 ml-2 text-secondary text-small"
+              to={props.nextPath}>
+              Skip
+            </Link>
+          )}
         </div>
       </div>
     </Layout>
