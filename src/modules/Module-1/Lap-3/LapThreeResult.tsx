@@ -1,8 +1,9 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import Result from '../../../components/result/result';
-import { useSelector } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import { ReduxStore } from '../../../interfaces/reduxStore';
 import { moduleOneResultData } from '../utils/data';
+import { setLapResult } from '../../../redux/actions/moduleOneActions';
 
 const LapTwoResult: React.FC = () => {
   const choice = useSelector(
@@ -12,6 +13,17 @@ const LapTwoResult: React.FC = () => {
   if (choice !== null) {
     quality = moduleOneResultData.lapThree(choice);
   }
+  const dispatch = useDispatch();
+
+  useEffect(() => {
+    const LapThreeResult = {
+      lapNumber: '3',
+      title: 'Setting the context',
+      description: 'Your decision shows these qualities',
+      qualities: [quality],
+    };
+    dispatch(setLapResult(LapThreeResult));
+  }, [dispatch, quality]);
 
   return (
     <Result

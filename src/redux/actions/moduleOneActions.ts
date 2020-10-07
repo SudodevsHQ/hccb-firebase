@@ -4,6 +4,7 @@ import {
   SetLapOneChoiceNum,
   SetLapOneChoiceBool,
 } from '../../interfaces/moduleOneAction.types';
+import { LapResult } from '../../interfaces/moduleOneState';
 import { lapOnedata } from '../../modules/Module-1/utils/data';
 
 export const setLapOneChoiceNumA = (choice: number): SetLapOneChoiceNum => {
@@ -95,3 +96,8 @@ export const setLapSixChoiceB = (choice: number): moduleOneActionTypes => {
     choice,
   };
 };
+
+export const setLapResult = (result: LapResult): moduleOneActionTypes => ({
+  type: 'SET_LAP_RESULT',
+  result,
+});

@@ -1,3 +1,5 @@
+import { LapResult } from './moduleOneState';
+
 export interface SetLapOneChoiceNum {
   type: string;
   option: 'A' | 'B';
@@ -35,6 +37,11 @@ export interface SetLapFiveOrder {
   order: number[];
 }
 
+export interface SetLapResult {
+  type: string;
+  result: LapResult;
+}
+
 export type moduleOneActionTypes =
   | SetLapOneChoiceNum
   | SetLapOneChoiceBool
@@ -42,4 +49,5 @@ export type moduleOneActionTypes =
   | SetLapFiveOrder
   | SetLapTwoChoices
   | SetLapOneSaving
-  | SetLapFourSubjectiveResponse;
+  | SetLapFourSubjectiveResponse
+  | SetLapResult;
