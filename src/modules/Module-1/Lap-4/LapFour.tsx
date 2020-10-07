@@ -14,7 +14,7 @@ const LapFour: React.FC = () => {
       console.log(choice);
       setNextPath('/module/1/lap/4/why');
     } else {
-      setNextPath('/module/1/lap/5');
+      setNextPath('/module/1/lap/4/result');
     }
   }, [setNextPath, choice]);
 

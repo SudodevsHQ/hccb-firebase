@@ -1,0 +1,17 @@
+@import '../../colors.scss';
+
+.pdf-content {
+  max-width: 80vw;
+  justify-content: space-between;
+  .card-text {
+    color: grey;
+  }
+  h2 {
+    width: 100%;
+    color: $headerColor;
+  }
+  .card-title {
+    color: $primaryPurple;
+  }
+
+}
