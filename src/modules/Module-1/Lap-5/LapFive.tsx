@@ -25,7 +25,8 @@ const LapFive: React.FC = () => {
       lapNumber={5}
       image="puzzle"
       nextPath="/module/1/lap/6"
-      validation={isValidOrder}>
+      validation={isValidOrder}
+      isSkippable>
       <ReorderableList />
     </SCQ>
   );
