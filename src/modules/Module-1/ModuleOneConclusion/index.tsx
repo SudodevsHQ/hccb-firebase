@@ -1,3 +1,4 @@
 import ModuleOneConclusion from './ModuleOneConclusion';
+import ModuleOneResults from './ModuleOneResults';
 
-export { ModuleOneConclusion };
+export { ModuleOneConclusion, ModuleOneResults };

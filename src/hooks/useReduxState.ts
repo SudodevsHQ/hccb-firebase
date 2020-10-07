@@ -1,7 +1,7 @@
 /* eslint-disable  @typescript-eslint/no-explicit-any */
 import { useState } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
-import { actionBuilderMap } from '../modules/Module-1/data';
+import { actionBuilderMap } from '../modules/Module-1/utils/data';
 import { ReduxStore } from '../interfaces/reduxStore';
 
 export const useReduxState = (

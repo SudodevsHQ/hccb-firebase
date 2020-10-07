@@ -6,6 +6,7 @@ import {
   SetLapFourSubjectiveResponse,
   SetLapOneChoiceNum,
   SetLapOneChoiceBool,
+  SetLapResult,
 } from '../../interfaces/moduleOneAction.types';
 import { AnyAction } from 'redux';
 
@@ -34,6 +35,7 @@ const moduleOneDefaultState: ModuleOneState = {
     choiceA: null,
     choiceB: null,
   },
+  moduleResult: [],
 };
 
 const moduleOneReducer = (
@@ -113,6 +115,19 @@ const moduleOneReducer = (
           }`]: (action as SingleChoiceAction).choice,
         },
       };
+
+    case 'SET_LAP_RESULT': {
+      // hack to prevent duplicate entries
+      const newArr = [...state.moduleResult, (action as SetLapResult).result];
+      const uniqueValues = new Set(newArr.map((v) => v.lapNumber));
+      if (newArr.length > uniqueValues.size) {
+        return state;
+      }
+      return {
+        ...state,
+        moduleResult: [...state.moduleResult, (action as SetLapResult).result],
+      };
+    }
 
     default:
       return state;

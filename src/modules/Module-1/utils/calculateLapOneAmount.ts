@@ -1,5 +1,5 @@
-import { ReduxStore } from '../../interfaces/reduxStore';
 import { useSelector } from 'react-redux';
+import { ReduxStore } from '../../../interfaces/reduxStore';
 
 export const useCalculateLapOneAmount = (): number => {
   const { amount, choiceA, choiceB, choiceC, choiceD } = useSelector(
