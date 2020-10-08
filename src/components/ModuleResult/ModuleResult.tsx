@@ -29,9 +29,10 @@ const ModuleResult: React.FC<Props> = ({ data }: Props) => {
           <MyDoc data={data} />
         </PDFViewer>
         <PDFDownloadLink
+          className="text-secondary mt-1 btn-light p-1"
           document={<MyDoc data={data} />}
           fileName="somename.pdf">
-          {({ loading }) => (loading ? 'Loading document...' : 'Download now!')}
+          {({ loading }) => (loading ? 'Loading document...' : 'Download PDF')}
         </PDFDownloadLink>
       </HeroCard>
     </div>
@@ -41,10 +42,10 @@ const ModuleResult: React.FC<Props> = ({ data }: Props) => {
 const styles = StyleSheet.create({
   page: {
     flexDirection: 'column',
+    padding: 20,
   },
   section: {
-    // margin: 5,
-    padding: '5 50',
+    padding: '0 50',
     flexGrow: 1,
     textAlign: 'center',
   },
@@ -54,24 +55,32 @@ const MyDoc = (props: Props) => (
   <Document>
     <Page size="A4" style={styles.page}>
       <View style={styles.section}>
-        <Text>Lap Results</Text>
+        <Text style={{ fontSize: 20, color: '#7c57f6' }}>LAP RESULTS</Text>
       </View>
       {props.data.map((lapRes) => (
         <View style={styles.section} key={lapRes.lapNumber}>
           <Text>Lap {lapRes.lapNumber}</Text>
-          <Text style={{ fontSize: 15 }}> {lapRes.title}</Text>
-          <Text style={{ fontSize: 10 }}>
-            {' '}
-            {lapRes.description && lapRes.description}
-          </Text>
-          <Text style={{ fontSize: 16 }}>
-            {' '}
-            {lapRes.qualities && lapRes.qualities}
-          </Text>
-          <Text style={{ fontSize: 16 }}>
-            {' '}
-            {lapRes.suggestions && lapRes.suggestions}
-          </Text>
+          <Text> {lapRes.title}</Text>
+
+          {lapRes.description && (
+            <Text style={{ fontSize: 10, color: 'grey' }}>
+              {lapRes.description}
+            </Text>
+          )}
+          <View style={{ padding: 5 }}></View>
+          {lapRes.qualities &&
+            lapRes.qualities.map((quality, i) => (
+              <Text key={`${i}`} style={{ fontSize: 14, color: 'green' }}>
+                - {quality}
+              </Text>
+            ))}
+
+          {lapRes.suggestions &&
+            lapRes.suggestions.map((suggestion, i) => (
+              <Text key={`${i}`} style={{ fontSize: 14, color: 'green' }}>
+                - {suggestion}
+              </Text>
+            ))}
         </View>
       ))}
     </Page>

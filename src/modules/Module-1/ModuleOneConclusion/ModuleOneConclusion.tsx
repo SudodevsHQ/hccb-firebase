@@ -8,7 +8,7 @@ const ModuleOneConclusion: React.FC = () => {
       description="Well Done we are done with the module 1, you have well managed the finances and team selection.
        All the best for the execution with all the inputs received in the Laps 🙂 "
       nextPath="/module/1/conclusion/result"
-      downloadUrl=""
+      downloadUrl="/module/1/conclusion/result"
     />
   );
 };
