@@ -23,4 +23,13 @@ export interface ModuleOneState {
     choiceA: null | number;
     choiceB: null | number;
   };
+  moduleResult: LapResult[];
+}
+
+export interface LapResult {
+  lapNumber: string;
+  title: string;
+  description?: string;
+  qualities?: string[];
+  suggestions?: string[];
 }

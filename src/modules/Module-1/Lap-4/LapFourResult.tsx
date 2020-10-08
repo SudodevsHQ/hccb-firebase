@@ -1,8 +1,9 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import Result from '../../../components/result/result';
-import { useSelector } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import { ReduxStore } from '../../../interfaces/reduxStore';
-import { moduleOneResultData } from '../data';
+import { moduleOneResultData } from '../utils/data';
+import { setLapResult } from '../../../redux/actions/moduleOneActions';
 
 const LapFourResult: React.FC = () => {
   const choices = useSelector(
@@ -13,6 +14,18 @@ const LapFourResult: React.FC = () => {
   if (choices !== null) {
     qualities = moduleOneResultData.lapFour(choices.sort());
   }
+
+  const dispatch = useDispatch();
+
+  useEffect(() => {
+    const LapFourResult = {
+      lapNumber: '4',
+      title: 'Leadership Style',
+      description: 'Your Ideal Leadership Style as per Manpower Traits is ',
+      qualities,
+    };
+    dispatch(setLapResult(LapFourResult));
+  }, [dispatch, qualities]);
   return (
     <Result
       title="Leadership Style"
