@@ -1,7 +1,7 @@
 /* eslint-disable  @typescript-eslint/no-explicit-any */
 import { combineReducers, createStore } from 'redux';
 import { persistStore, persistReducer } from 'redux-persist';
-import storage from 'redux-persist/lib/storage'; // defaults to localStorage for web
+import storage from 'redux-persist/lib/storage/session'; // defaults to localStorage for web
 
 import moduleOneReducer from '../reducers/moduleOneReducer';
 import miscReducer from '../reducers/miscReducer';
