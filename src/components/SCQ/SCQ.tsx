@@ -8,6 +8,7 @@ import styles from './SCQ.module.scss';
 import PrimaryButton from '../primaryButton/primaryButton';
 import ModuleTitle from '../moduleTitle/moduleTitle';
 import { Link } from 'react-router-dom';
+import useGetDynamicRoute from '../../util/injectRoute';
 
 interface Props {
   lapNumber: number;
@@ -24,6 +25,8 @@ interface Props {
 }
 
 const SCQ: React.FC<Props> = (props: Props) => {
+  const ogNextPath = useGetDynamicRoute(props.nextPath);
+
   return (
     <Layout image={props.image}>
       <div className="container px-xl-5 px-md-2">
@@ -60,14 +63,14 @@ const SCQ: React.FC<Props> = (props: Props) => {
           <PrimaryButton
             error={props.error}
             attempted={true}
-            path={props.nextPath}
+            path={ogNextPath}
             validation={props.validation}>
             Next
           </PrimaryButton>
           {props.isSkippable && (
             <Link
               className="mt-4 ml-2 text-secondary text-small"
-              to={props.nextPath}>
+              to={ogNextPath}>
               Skip
             </Link>
           )}

@@ -8,6 +8,7 @@ import PrimaryButton from '../primaryButton/primaryButton';
 import ModuleTitle from '../moduleTitle/moduleTitle';
 import { useReduxState } from '../../hooks/useReduxState';
 import { ReduxStore } from '../../interfaces/reduxStore';
+import useGetDynamicRoute from '../../util/injectRoute';
 
 interface Props {
   lapNumber: number;
@@ -97,7 +98,7 @@ const MCQ: React.FC<Props> = ({
           <PrimaryButton
             error={error}
             attempted={selectedOptions.length === numberOfCorrectOptions}
-            path={props.nextPath}>
+            path={useGetDynamicRoute(props.nextPath)}>
             Next
           </PrimaryButton>
         </div>
