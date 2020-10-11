@@ -11,7 +11,7 @@ const IntroductionOne: React.FunctionComponent = () => {
       nextPath="/module/1/introduction">
       <div className="w-100 h-100" style={{ overflow: 'hidden' }}>
         <QierPlayer
-          srcOrigin="https://assets.mixkit.co/videos/preview/mixkit-motion-graphic-animation-of-futuristic-devices-99786-large.mp4"
+          srcOrigin="/static/video/moduleOneIntro.mp4"
           height="100%"
           width="540"
         />
