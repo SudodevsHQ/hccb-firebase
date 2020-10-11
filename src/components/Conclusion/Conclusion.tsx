@@ -8,6 +8,7 @@ import resultStyles from '../result/result.module.scss';
 import styles from './Conclusion.module.scss';
 
 import PrimaryButton from '../primaryButton/primaryButton';
+import useGetDynamicRoute from '../../util/injectRoute';
 
 interface Props {
   title: string;
@@ -35,7 +36,9 @@ const Conclusion: React.FC<Props> = (props: Props) => {
         <div className={`${styles.description}`}>{props.description}</div>
         <div
           className={`d-flex justify-content-center my-md-2 flex-wrap ${styles.buttons}`}>
-          <PrimaryButton attempted={true} path={props.nextPath}>
+          <PrimaryButton
+            attempted={true}
+            path={useGetDynamicRoute(props.nextPath)}>
             See Results for all Laps
           </PrimaryButton>
           <PrimaryButton attempted={true} path={props.downloadUrl}>

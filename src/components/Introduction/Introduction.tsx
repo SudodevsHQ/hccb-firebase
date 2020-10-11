@@ -2,6 +2,7 @@ import React from 'react';
 import style from './Introduction.module.scss';
 import Layout from '../layout/Layout';
 import PrimaryButton from '../primaryButton/primaryButton';
+import useGetDynamicRoute from '../../util/injectRoute';
 
 interface Props {
   title: string;
@@ -27,7 +28,7 @@ const Introduction: React.FC<Props> = ({
           {children}
         </div>
 
-        <PrimaryButton attempted={true} path={nextPath}>
+        <PrimaryButton attempted={true} path={useGetDynamicRoute(nextPath)}>
           {primaryButtonText}
         </PrimaryButton>
       </div>

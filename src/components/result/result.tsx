@@ -11,6 +11,7 @@ import HeroCard from '../ContentCard/ContentCard';
 import ModuleTitle from '../moduleTitle/moduleTitle';
 import styles from './result.module.scss';
 import PrimaryButton from '../primaryButton/primaryButton';
+import useGetDynamicRoute from '../../util/injectRoute';
 
 interface Props {
   lapNumber: number;
@@ -80,7 +81,9 @@ const Result: React.FC<Props> = ({ image = 'result', ...props }: Props) => {
 
         <div className={styles.remark}>{props.remark}</div>
 
-        <PrimaryButton attempted={true} path={props.nextPath}>
+        <PrimaryButton
+          attempted={true}
+          path={useGetDynamicRoute(props.nextPath)}>
           Next Lap
         </PrimaryButton>
       </HeroCard>

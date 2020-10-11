@@ -7,7 +7,7 @@ const IntroductionOne: React.FunctionComponent = () => {
       title="Popz Soda - A Case Study"
       image="quiz"
       primaryButtonText="Start Lap 1"
-      nextPath="/module/1/lap/1/a">
+      nextPath={`/module/1/lap/1/a`}>
       <p>
         You are the sales-head of Popz-Soda Pvt. Ltd. This case study is to
         analyse the decision-making capability of the sales-head and how well
