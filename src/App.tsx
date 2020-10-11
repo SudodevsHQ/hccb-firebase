@@ -9,12 +9,14 @@ import TopBar from './components/TopBar/TopBar';
 import useCheckAuth from './hooks/useCheckAuth';
 import { RouteComponentProps } from 'react-router-dom';
 import ModuleOne from './modules/Module-1/ModuleOne';
+import Loading from './components/Loading/Loading';
+import ServerError from './components/ServerError/ServerError';
 
 const App: React.FunctionComponent = () => {
   const { isValid, email, quizID, isLoading } = useCheckAuth();
 
-  if (isLoading) return <div>loading</div>;
-  if (!isValid) return <div>no auth</div>;
+  if (isLoading) return <Loading />;
+  if (!isValid) return <ServerError />;
 
   return (
     <>
