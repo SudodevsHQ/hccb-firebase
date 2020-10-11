@@ -1,5 +1,4 @@
 import React from 'react';
-import { BrowserRouter } from 'react-router-dom';
 import { AnimatedSwitch, AnimatedRoute } from 'react-router-transition';
 
 import 'bootstrap/dist/css/bootstrap.min.css';
@@ -30,10 +29,17 @@ import {
   ModuleOneResults,
 } from './modules/Module-1/ModuleOneConclusion';
 import TopBar from './components/TopBar/TopBar';
+import useCheckAuth from './hooks/useCheckAuth';
+import { RouteComponentProps } from 'react-router-dom';
 
-const App: React.FunctionComponent = () => {
+const App: React.FunctionComponent = (props) => {
+  const { isValid, email, quizID, isLoading } = useCheckAuth();
+  console.log(props);
+  if (isLoading) return <div>loading</div>;
+  if (!isValid) return <div>no auth</div>;
+
   return (
-    <BrowserRouter>
+    <>
       <TopBar />
       <AnimatedSwitch
         {...pageTransitions}
@@ -42,12 +48,25 @@ const App: React.FunctionComponent = () => {
           transform: `translateX(${styles.offset}%)`,
         })}
         className="switch-wrapper">
+        <AnimatedRoute
+          path={`/quiz/${quizID}/${email}`}
+          render={({ match: { path } }: RouteComponentProps) => (
+            <>
+              <AnimatedRoute
+                path={`${path}/`}
+                component={ModuleIntroVideo}
+                exact
+              />
+              <AnimatedRoute
+                path={`${path}/module/1/introduction`}
+                component={IntroductionOne}
+              />
+            </>
+          )}
+        />
+
         <AnimatedRoute path="/" component={ModuleIntroVideo} exact={true} />
 
-        <AnimatedRoute
-          path="/module/1/introduction"
-          component={IntroductionOne}
-        />
         <AnimatedRoute path="/module/1/lap/1/a" component={LapOneA} />
         <AnimatedRoute path="/module/1/lap/1/b" component={LapOneB} />
         <AnimatedRoute path="/module/1/lap/1/c" component={LapOneC} />
@@ -120,7 +139,7 @@ const App: React.FunctionComponent = () => {
           exact
         />
       </AnimatedSwitch>
-    </BrowserRouter>
+    </>
   );
 };
 
