@@ -30,7 +30,8 @@ const LoginPage: React.FC = () => {
         }),
       });
       const json = await res.json();
-      if (json.data) history.push(`${employee_id}/module/${json.module}`);
+      if (json.data)
+        history.push(`/quiz/${quizID}/${employee_id}/module/${json.module}`);
       else setError('You are not authorized to access this quiz');
     }
   };

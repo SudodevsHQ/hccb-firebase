@@ -7,6 +7,7 @@ import { LapTwo, LapTwoResult } from './Lap-2';
 import { LapThree, LapThreeResult } from './Lap-3';
 import { LapFour, LapFourSubjectiveResponse } from './Lap-4';
 import LapFourResult from './Lap-4/LapFourResult';
+
 import LapFive from './Lap-5/LapFive';
 import {
   LapSixIntro,
@@ -64,8 +65,7 @@ const ModuleOne: React.FC = () => {
 
         <AnimatedRoute path={`${url}/lap/4`} component={LapFour} exact={true} />
         <AnimatedRoute
-          path={`${url}/lap/4/why"
-        `}
+          path={`${url}/lap/4/why`}
           component={LapFourSubjectiveResponse}
         />
 
