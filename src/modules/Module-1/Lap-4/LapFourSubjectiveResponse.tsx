@@ -1,7 +1,7 @@
 import React from 'react';
 import SCQ from '../../../components/SCQ/SCQ';
 
-const LapFour: React.FC = () => {
+const LapFourSubjectiveResponse: React.FC = () => {
   return (
     <SCQ
       title="What kind of style would you like to adapt?"
@@ -22,4 +22,4 @@ const LapFour: React.FC = () => {
   );
 };
 
-export default LapFour;
+export default LapFourSubjectiveResponse;
