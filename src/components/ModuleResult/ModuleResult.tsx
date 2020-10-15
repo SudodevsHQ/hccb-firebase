@@ -31,7 +31,7 @@ const ModuleResult: React.FC<Props> = ({ data }: Props) => {
         <PDFDownloadLink
           className="text-secondary mt-1 btn-light p-1"
           document={<MyDoc data={data} />}
-          fileName="hccb-result.pdf">
+          fileName="somename.pdf">
           {({ loading }) => (loading ? 'Loading document...' : 'Download PDF')}
         </PDFDownloadLink>
       </HeroCard>

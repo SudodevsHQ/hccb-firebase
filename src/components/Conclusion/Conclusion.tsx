@@ -41,9 +41,7 @@ const Conclusion: React.FC<Props> = (props: Props) => {
             path={useGetDynamicRoute(props.nextPath)}>
             See Results for all Laps
           </PrimaryButton>
-          <PrimaryButton
-            attempted={true}
-            path={useGetDynamicRoute(props.downloadUrl)}>
+          <PrimaryButton attempted={true} path={props.downloadUrl}>
             Download Results
           </PrimaryButton>
         </div>

@@ -7,7 +7,6 @@ import { LapTwo, LapTwoResult } from './Lap-2';
 import { LapThree, LapThreeResult } from './Lap-3';
 import { LapFour, LapFourSubjectiveResponse } from './Lap-4';
 import LapFourResult from './Lap-4/LapFourResult';
-
 import LapFive from './Lap-5/LapFive';
 import {
   LapSixIntro,
@@ -17,22 +16,12 @@ import {
   LapSixResultB,
 } from './Lap-6';
 import { ModuleOneConclusion, ModuleOneResults } from './ModuleOneConclusion';
-import Loading from '../../components/Loading/Loading';
-import useCheckAuth from '../../hooks/useCheckAuth';
-import ServerError from '../../components/ServerError/ServerError';
-import TopBar from '../../components/TopBar/TopBar';
 
 const ModuleOne: React.FC = () => {
   const { url } = useRouteMatch();
-
-  const { isValid, isLoading } = useCheckAuth();
-  if (isLoading) return <Loading />;
-  if (!isValid) return <ServerError />;
-
+  console.log('Module One');
   return (
     <Router>
-      <TopBar />
-
       <AnimatedSwitch>
         <AnimatedRoute
           path={`${url}/`}
@@ -65,7 +54,8 @@ const ModuleOne: React.FC = () => {
 
         <AnimatedRoute path={`${url}/lap/4`} component={LapFour} exact={true} />
         <AnimatedRoute
-          path={`${url}/lap/4/why`}
+          path={`${url}/lap/4/why"
+        `}
           component={LapFourSubjectiveResponse}
         />
 
