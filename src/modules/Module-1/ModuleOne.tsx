@@ -24,8 +24,8 @@ import TopBar from '../../components/TopBar/TopBar';
 
 const ModuleOne: React.FC = () => {
   const { url } = useRouteMatch();
-
   const { isValid, isLoading } = useCheckAuth();
+
   if (isLoading) return <Loading />;
   if (!isValid) return <ServerError />;
 

@@ -14,14 +14,8 @@ const ModuleOneConclusion: React.FC = () => {
   useEffect(() => {
     const commitResult = async () => {
       const id = url.split('/')[2];
-      const email = url.split('/')[3];
+      const employee_id = url.split('/')[3];
 
-      console.log(
-        moduleResultData.map((lapResult) => ({
-          ...lapResult,
-          quiz_id: `quiz/${id}`,
-        })),
-      );
       const res = await fetch(
         `${process.env.REACT_APP_BASE_URL}/quiz/add-data`,
         {
@@ -35,7 +29,7 @@ const ModuleOneConclusion: React.FC = () => {
             data: moduleResultData.map((lapResult) => ({
               ...lapResult,
               key: `quiz/${id}`,
-              email,
+              employee_id,
             })),
           }),
         },
