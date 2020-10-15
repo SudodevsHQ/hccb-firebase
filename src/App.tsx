@@ -7,7 +7,7 @@ import { pageTransitions } from './util/rrtConfig';
 
 import { RouteComponentProps, useLocation } from 'react-router-dom';
 import ModuleOne from './modules/Module-1/ModuleOne';
-import LoginPage from './Login';
+import LoginPage from './components/LoginPage/LoginPage';
 import Attempted from './components/Attempted/Attempted';
 
 const App: React.FunctionComponent = () => {

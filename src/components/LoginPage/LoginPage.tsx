@@ -1,6 +1,8 @@
 import React, { useState } from 'react';
 import { useHistory, useLocation } from 'react-router-dom';
 
+import styles from './LoginPage.module.scss';
+
 const LoginPage: React.FC = () => {
   const location = useLocation();
   const history = useHistory();
@@ -37,32 +39,40 @@ const LoginPage: React.FC = () => {
   };
 
   return (
-    <div>
-      <label htmlFor="employee_id" className="form-label">
-        Employee ID
-      </label>
-      <input
-        type="text"
-        className="form-control"
-        id="employee_id"
-        placeholder="Employee ID"
-        onChange={(e) => setEmployee_id(e.target.value)}></input>
-      <label htmlFor="password" className="form-label">
-        Password
-      </label>
-      <input
-        type="password"
-        className="form-control"
-        id="password"
-        placeholder="Password"
-        onChange={(e) => setPassword(e.target.value)}></input>
-      <button
-        type="button"
-        className="btn btn-outline-primary"
-        onClick={handleSubmit}>
-        Submit
-      </button>
-      {error}
+    <div className={`${styles.login}`}>
+      <form className={`${styles.loginForm} p-5`}>
+        <label htmlFor="employee_id" className="form-label">
+          Employee ID
+        </label>
+        <input
+          autoComplete="off"
+          type="text"
+          className="form-control mb-3"
+          id="employee_id"
+          placeholder="Employee ID"
+          onChange={(e) => setEmployee_id(e.target.value)}></input>
+        <label htmlFor="password" className="form-label">
+          Password
+        </label>
+        <input
+          type="password"
+          className="form-control mb-3"
+          id="password"
+          placeholder="Password"
+          onChange={(e) => setPassword(e.target.value)}></input>
+
+        <p className="text-danger">{error}</p>
+        <button
+          type="button"
+          className="btn btn-primary"
+          onClick={handleSubmit}>
+          Submit
+        </button>
+      </form>
+      <img
+        src="/static/img/login.svg"
+        alt="login"
+        className="img-fluid d-none d-md-inline-block"></img>
     </div>
   );
 };
