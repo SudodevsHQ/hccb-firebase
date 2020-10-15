@@ -11,14 +11,16 @@ const LoginPage: React.FC = () => {
   const [employee_id, setEmployee_id] = useState('');
   const [password, setPassword] = useState('');
   const [error, setError] = useState('');
+  const [isLoading, setIsLoading] = useState(false);
 
   const handleSubmit = async () => {
     if (!employee_id) setError('Please enter Employee id');
     else if (!password) setError('Please enter password');
     else if (password !== employee_id)
-      setError('Please check that the employee_id and password are the same');
+      setError('Please check that the employee ID and password are the same');
     else {
       setError('');
+      setIsLoading(true);
       const res = await fetch(`${process.env.REACT_APP_BASE_URL}/quiz/check`, {
         method: 'POST',
         mode: 'cors',
@@ -33,8 +35,12 @@ const LoginPage: React.FC = () => {
       });
       const json = await res.json();
       if (json.data) {
+        setIsLoading(false);
         history.push(`/quiz/${quizID}/${employee_id}/module/${json.module}`);
-      } else setError('You are not authorized to access this quiz');
+      } else {
+        setError('You are not authorized to access this quiz');
+        setIsLoading(false);
+      }
     }
   };
 
@@ -61,11 +67,18 @@ const LoginPage: React.FC = () => {
           placeholder="Password"
           onChange={(e) => setPassword(e.target.value)}></input>
 
-        <p className="text-danger">{error}</p>
+        <p className="text-danger mb-3">{error}</p>
         <button
+          disabled={isLoading}
           type="button"
           className="btn btn-primary"
           onClick={handleSubmit}>
+          {isLoading && (
+            <span
+              className="spinner-border spinner-border-sm mr-2"
+              role="status"
+              aria-hidden="true"></span>
+          )}
           Submit
         </button>
       </form>

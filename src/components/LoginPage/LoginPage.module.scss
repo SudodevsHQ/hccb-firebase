@@ -1,3 +1,5 @@
+@import '../../colors.scss';
+
 .login {
   display: flex;
   justify-content: center;
@@ -9,5 +11,12 @@
     box-shadow: 0px 10px 50px 10px rgba(0, 0, 0, 0.1);
     border-radius: 20px;
     max-width: 25rem;
+
+    button {
+      background-color: $primaryPurple;
+      outline: none;
+      border: none;
+      box-shadow: none;
+    }
   }
 }

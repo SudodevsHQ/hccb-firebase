@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import React, { useEffect } from 'react';
 import { useSelector } from 'react-redux';
 import { useRouteMatch } from 'react-router-dom';
 import Conclusion from '../../../components/Conclusion/Conclusion';
@@ -8,7 +8,6 @@ const ModuleOneConclusion: React.FC = () => {
   const moduleResultData = useSelector(
     (state: ReduxStore) => state.moduleOne.moduleResult,
   );
-  const [postResponse, setPostResponse] = useState(undefined);
   const { url } = useRouteMatch();
 
   useEffect(() => {
@@ -36,12 +35,10 @@ const ModuleOneConclusion: React.FC = () => {
       );
       const json = await res.json();
       console.log(json);
-      setPostResponse(json);
-      console.log(postResponse);
     };
 
     commitResult();
-  }, []);
+  }, [moduleResultData, url]);
 
   return (
     <Conclusion
