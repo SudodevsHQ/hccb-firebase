@@ -16,12 +16,22 @@ import {
   LapSixResultB,
 } from './Lap-6';
 import { ModuleOneConclusion, ModuleOneResults } from './ModuleOneConclusion';
+import Loading from '../../components/Loading/Loading';
+import useCheckAuth from '../../hooks/useCheckAuth';
+import ServerError from '../../components/ServerError/ServerError';
+import TopBar from '../../components/TopBar/TopBar';
 
 const ModuleOne: React.FC = () => {
   const { url } = useRouteMatch();
-  console.log('Module One');
+
+  const { isValid, isLoading } = useCheckAuth();
+  if (isLoading) return <Loading />;
+  if (!isValid) return <ServerError />;
+
   return (
     <Router>
+      <TopBar />
+
       <AnimatedSwitch>
         <AnimatedRoute
           path={`${url}/`}

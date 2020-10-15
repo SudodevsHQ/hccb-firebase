@@ -5,7 +5,7 @@ export interface AuthTypes {
   isValid: boolean;
   isLoading: boolean;
   error: string | null;
-  email: string | null;
+  employee_id: string | null;
   quizID: string | null;
 }
 
@@ -13,7 +13,7 @@ const useCheckAuth = (): AuthTypes => {
   const location = useLocation();
   // quiz/0kaj9d5unNfWD2RvTMep/ayushsingh871@gmail.com
 
-  const [email, setEmail] = useState<string | null>(null);
+  const [employee_id, setId] = useState<string | null>(null);
   const [quizID, setQuizId] = useState<string | null>(null);
   const [isValid, setIsValid] = useState(false);
   const [isLoading, setIsLoading] = useState(false);
@@ -22,7 +22,7 @@ const useCheckAuth = (): AuthTypes => {
   useEffect(() => {
     const path = location.pathname;
     const paths = path.split('/');
-    setEmail(paths[3]);
+    setId(paths[3]);
     setQuizId(paths[2]);
   }, [location.pathname]);
 
@@ -31,7 +31,7 @@ const useCheckAuth = (): AuthTypes => {
   }, [isValid]);
 
   useEffect(() => {
-    console.log(email, quizID);
+    console.log(employee_id, quizID);
     const fetchData = async () => {
       setIsLoading(true);
       try {
@@ -45,7 +45,7 @@ const useCheckAuth = (): AuthTypes => {
               'Content-Type': 'application/json',
             },
             body: JSON.stringify({
-              email,
+              employee_id,
               key: `quiz/${quizID}`,
             }),
           },
@@ -60,12 +60,12 @@ const useCheckAuth = (): AuthTypes => {
         setError(error);
       }
     };
-    if (email && quizID) {
+    if (employee_id && quizID) {
       fetchData();
     }
-  }, [email, quizID]);
+  }, [employee_id, quizID]);
 
-  return { isValid, isLoading, error, email, quizID };
+  return { isValid, isLoading, error, employee_id, quizID };
 };
 
 export default useCheckAuth;
