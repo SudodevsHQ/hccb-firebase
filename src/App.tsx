@@ -1,24 +1,45 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import { AnimatedSwitch, AnimatedRoute } from 'react-router-transition';
 
 import 'bootstrap/dist/css/bootstrap.min.css';
 import 'bootstrap/dist/js/bootstrap.min.js';
 import { pageTransitions } from './util/rrtConfig';
 
-import TopBar from './components/TopBar/TopBar';
-import useCheckAuth from './hooks/useCheckAuth';
-import { RouteComponentProps } from 'react-router-dom';
+import { RouteComponentProps, useLocation } from 'react-router-dom';
 import ModuleOne from './modules/Module-1/ModuleOne';
+import LoginPage from './components/LoginPage/LoginPage';
+import Attempted from './components/Attempted/Attempted';
 
 const App: React.FunctionComponent = () => {
-  const { isValid, email, quizID, isLoading } = useCheckAuth();
+  const [attempted, setAttempted] = useState(false);
+  const location = useLocation();
+  const path = location.pathname.split('/');
+  const employee_id = path[3];
+  const quizID = path[2];
 
-  if (isLoading) return <div>loading</div>;
-  if (!isValid) return <div>no auth</div>;
+  useEffect(() => {
+    const checkIfAttempted = async () => {
+      const resp = await fetch(
+        `${process.env.REACT_APP_BASE_URL}/quiz/responses?employee_id=${employee_id}&key=quiz/${quizID}`,
+        {
+          method: 'GET',
+          mode: 'cors',
+          credentials: 'same-origin',
+          headers: {
+            'Content-Type': 'application/json',
+          },
+        },
+      );
+      const json = await resp.json();
+      setAttempted(json.data.length > 0);
+    };
+    checkIfAttempted();
+  }, [employee_id, quizID]);
+
+  if (attempted) return <Attempted />;
 
   return (
     <>
-      <TopBar />
       <AnimatedSwitch
         {...pageTransitions}
         //eslint-disable-next-line
@@ -27,7 +48,13 @@ const App: React.FunctionComponent = () => {
         })}
         className="switch-wrapper">
         <AnimatedRoute
-          path={`/quiz/${quizID}/${email}`}
+          path={`/quiz/${quizID}`}
+          component={LoginPage}
+          exact={true}
+        />
+
+        <AnimatedRoute
+          path={`/quiz/${quizID}/${employee_id}`}
           render={({ match: { path } }: RouteComponentProps) => (
             <>
               <AnimatedRoute path={`${path}/module/1`} component={ModuleOne} />

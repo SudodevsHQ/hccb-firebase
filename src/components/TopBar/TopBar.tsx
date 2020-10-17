@@ -17,7 +17,7 @@ const TopBar: React.FC = () => {
   const location = useLocation();
 
   useEffect(() => {
-    const currentLap = parseInt(location.pathname.split('/')[4]);
+    const currentLap = parseInt(location.pathname.split('/')[7]);
     dispatch(setCurrentLapNumber(currentLap));
   }, [dispatch, location.pathname]);
 
