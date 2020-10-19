@@ -27,11 +27,11 @@ const useCheckAuth = (): AuthTypes => {
   }, [location.pathname]);
 
   useEffect(() => {
-    console.log(isValid);
+    // console.log(isValid);
   }, [isValid]);
 
   useEffect(() => {
-    console.log(employee_id, quizID);
+    // console.log(employee_id, quizID);
     const fetchData = async () => {
       setIsLoading(true);
       try {
@@ -51,7 +51,7 @@ const useCheckAuth = (): AuthTypes => {
           },
         );
         const json = await res.json();
-        console.log(json);
+        // console.log(json);
         if (json.data) {
           setIsValid(true);
         }

@@ -12,7 +12,10 @@ const LapTwo: React.FC = () => {
           Good Job with the Budget, You are all set for the sales. Get Set Ready
           for choosing your team and handling team dynamics. You already have 1
           Fresher and 1 Experienced Sales man in your team. <br />
-          <strong>You need to recruit 2 more sales men.</strong>
+          <strong>
+            You need to recruit 2 more sales men. Select 1 fresher and 1
+            experienced salesman.
+          </strong>
         </p>
       }
       nextPath="/module/1/lap/2/result"

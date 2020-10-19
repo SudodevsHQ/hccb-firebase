@@ -11,7 +11,7 @@ const LapFour: React.FC = () => {
 
   useEffect(() => {
     if (choice === 0) {
-      console.log(choice);
+      // console.log(choice);
       setNextPath('/module/1/lap/4/why');
     } else {
       setNextPath('/module/1/lap/4/result');

@@ -14,27 +14,23 @@ const ModuleOneConclusion: React.FC = () => {
     const commitResult = async () => {
       const id = url.split('/')[2];
       const employee_id = url.split('/')[3];
-
-      const res = await fetch(
-        `${process.env.REACT_APP_BASE_URL}/quiz/add-data`,
-        {
-          method: 'POST',
-          mode: 'cors',
-          credentials: 'same-origin',
-          headers: {
-            'Content-Type': 'application/json',
-          },
-          body: JSON.stringify({
-            data: moduleResultData.map((lapResult) => ({
-              ...lapResult,
-              key: `quiz/${id}`,
-              employee_id,
-            })),
-          }),
+      await fetch(`${process.env.REACT_APP_BASE_URL}/quiz/add-data`, {
+        method: 'POST',
+        mode: 'cors',
+        credentials: 'same-origin',
+        headers: {
+          'Content-Type': 'application/json',
         },
-      );
-      const json = await res.json();
-      console.log(json);
+        body: JSON.stringify({
+          data: moduleResultData.map((lapResult) => ({
+            ...lapResult,
+            key: `quiz/${id}`,
+            employee_id,
+          })),
+        }),
+      });
+      // const json = await res.json();
+      // // console.log(json);
     };
 
     commitResult();
