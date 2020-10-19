@@ -20,7 +20,7 @@ interface Props {
 }
 
 const ModuleResult: React.FC<Props> = ({ data }: Props) => {
-  console.log(data);
+  // console.log(data);
   return (
     <div
       className={`${resultStyles.result} p-md-5 p-4 d-flex text-center justify-content-center`}>
