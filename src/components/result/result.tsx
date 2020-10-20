@@ -26,11 +26,12 @@ interface Props {
 
 const Result: React.FC<Props> = ({ image = 'result', ...props }: Props) => {
   const { width, height } = useWindowDimensions();
-  const [play] = useSound('/static/audio/lap-complete.mp3');
+  const [play, { stop }] = useSound('/static/audio/lap-complete.mp3');
 
   useEffect(() => {
     play();
-  }, [play]);
+    return () => stop();
+  }, [play, stop]);
 
   return (
     <div
