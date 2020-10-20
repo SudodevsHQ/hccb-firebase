@@ -32,4 +32,5 @@ export interface LapResult {
   description?: string;
   qualities?: string[];
   suggestions?: string[];
+  feedback?: string;
 }

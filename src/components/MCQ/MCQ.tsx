@@ -1,6 +1,6 @@
 // Multiple-Choice Question Component
 
-import React, { useEffect, useState } from 'react';
+import React from 'react';
 
 import Layout from '../layout/Layout';
 import styles from './MCQ.module.scss';
@@ -34,7 +34,7 @@ interface Props {
 
 const MCQ: React.FC<Props> = ({
   numberOfCorrectOptions = 1,
-  error: propsError = 'Please select an option to continue',
+  error = 'Please select an option to continue',
   ...props
 }: Props) => {
   const [selectedOptions, setSelectedOptions] = useReduxState(
@@ -42,18 +42,6 @@ const MCQ: React.FC<Props> = ({
     props.stateSelector,
     numberOfCorrectOptions,
   );
-  const [error, setError] = useState(propsError);
-
-  useEffect(() => {
-    if (
-      [1, 2].every((i) => selectedOptions.includes(i)) ||
-      [0, 3].every((i) => selectedOptions.includes(i))
-    ) {
-      setError('Please Select 1 Experienced and 1 Fresher Salesman');
-    } else {
-      setError(propsError);
-    }
-  }, [selectedOptions, propsError]);
 
   return (
     <Layout image={props.image}>
@@ -110,7 +98,6 @@ const MCQ: React.FC<Props> = ({
           <PrimaryButton
             error={error}
             attempted={selectedOptions.length === numberOfCorrectOptions}
-            validation={error === propsError}
             path={useGetDynamicRoute(props.nextPath)}>
             Next
           </PrimaryButton>

@@ -4,6 +4,7 @@ import { ReduxStore } from '../../../interfaces/reduxStore';
 import { useDispatch, useSelector } from 'react-redux';
 import { moduleOneResultData } from '../utils/data';
 import { setLapResult } from '../../../redux/actions/moduleOneActions';
+import moduleOneFeedback from '../utils/moduleOneFeedBack';
 
 const LapTwoResult: React.FC = () => {
   const choices = useSelector(
@@ -11,8 +12,10 @@ const LapTwoResult: React.FC = () => {
   );
 
   let qualities = [''];
+  let feedback = '';
   if (choices !== null) {
     qualities = moduleOneResultData.lapTwo(choices.sort());
+    feedback = moduleOneFeedback.lapTwo(choices.sort());
   }
 
   const dispatch = useDispatch();
@@ -23,9 +26,10 @@ const LapTwoResult: React.FC = () => {
       title: 'Manpower Management',
       description: 'Your decision shows these qualities',
       qualities,
+      feedback,
     };
     dispatch(setLapResult(LapTwoResult));
-  }, [dispatch, qualities]);
+  }, [dispatch, qualities, feedback]);
 
   return (
     <Result
