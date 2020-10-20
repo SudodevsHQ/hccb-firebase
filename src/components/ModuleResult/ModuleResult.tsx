@@ -17,20 +17,21 @@ import {
 
 interface Props {
   data: LapResult[];
+  feedback: Record<string, string>;
 }
 
-const ModuleResult: React.FC<Props> = ({ data }: Props) => {
+const ModuleResult: React.FC<Props> = ({ data, feedback }: Props) => {
   // console.log(data);
   return (
     <div
       className={`${resultStyles.result} p-md-5 p-4 d-flex text-center justify-content-center`}>
       <HeroCard>
         <PDFViewer className="h-100">
-          <MyDoc data={data} />
+          <MyDoc data={data} feedback={feedback} />
         </PDFViewer>
         <PDFDownloadLink
           className="text-secondary mt-1 btn-light p-1"
-          document={<MyDoc data={data} />}
+          document={<MyDoc data={data} feedback={feedback} />}
           fileName="hccb-result.pdf">
           {({ loading }) => (loading ? 'Loading document...' : 'Download PDF')}
         </PDFDownloadLink>
@@ -74,6 +75,12 @@ const MyDoc = (props: Props) => (
                 - {quality}
               </Text>
             ))}
+
+          {props.feedback[lapRes.lapNumber] && (
+            <Text style={{ fontSize: 12 }}>
+              {props.feedback[lapRes.lapNumber]}
+            </Text>
+          )}
 
           {lapRes.suggestions &&
             lapRes.suggestions.map((suggestion, i) => (
