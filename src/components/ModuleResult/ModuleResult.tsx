@@ -56,7 +56,22 @@ const MyDoc = (props: Props) => (
   <Document>
     <Page size="A4" style={styles.page}>
       <View style={styles.section}>
-        <Text style={{ fontSize: 20, color: '#7c57f6' }}>LAP RESULTS</Text>
+        <Text style={{ fontSize: 18, color: '#7c57f6' }}>
+          Maharashtra Goa Zone
+        </Text>
+        <Text style={{ fontSize: 12, color: '#7c57f6', marginTop: 1 }}>
+          Overview of the Assessment
+        </Text>
+        <Text
+          style={{
+            fontSize: 14,
+            color: '#fd6f8d',
+            marginTop: 1,
+            paddingBottom: 5,
+            borderBottom: '1 solid grey',
+          }}>
+          How did you manage as a Sales Head ?
+        </Text>
       </View>
       {props.data.map((lapRes) => (
         <View style={styles.section} key={lapRes.lapNumber}>
