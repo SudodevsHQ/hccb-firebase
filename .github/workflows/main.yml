@@ -19,7 +19,6 @@ jobs:
     - name: Install and test    
       run: |
           yarn
-          yarn test
           yarn build
 
       env:
